@@ -4,7 +4,7 @@ deploy:
   provider: heroku
   api_key:
     secure: GY7MD7jHNOCHQcliHNVTMaOU1OTMHjulgxrz6UVczznxX/pC//rwNjKTXutpX0mYwlgzNKCaZjYLN4zxZXkMfasPPi7zLTUakfoWJrlTSj8TFiQDQW4+CXArW4C4yRoG4kLax9PTUVnaHAgYsyST/Ee5QR5eWndXNUYVSlQ4l/oKZg6OTcdbmO5IGZh6wSJSeSZLQE/r2d11uQW3c/G9Kv/i73h+EbxxEwFQ/neSrdAAW09eF7g3B4qe1u+JWNBJ7dMhQ/nbPhp2uI26iwKJF11BSF143mgHkzJ9KAzFXIlvZP0/geqFo3msMH7ZOe9bIBGomOP6C51KX/8ExxAfMwjH9U/90umLyEaprfeuaES9JAIJD5QjwoZxB/6uWbn936TNMgt+mf9+NqFSzj5UhXg7msVZrwooUec3nj5cjvLnCI+tJNENDjxpnIWPJIKBL73cbiOpD4TddmdA2+EyEoRtXzQ9JPEJcN9Ys5X+tCkBxkg3joWq+5vEQZQxjCjEWEGRFurE/FjZnJXAD/aNroJDxxDaOgUri+NhEf2zD/+CxJudSB9XphSXD6mWS/JHcQkDOUF5UQLjCSWP0Twf6U9866CoBItAV7+/RcSdYDeEKHRE44/4ZSnhK5uqQ3IDIEXkWGAJ0v8GnCNMTCVQyqBGmscKyFMABpktmoZQCTE=
-    app:  sheltered-falls-72749
+    app: sheltered-falls-72749
 
   on:
     repo: DarcyDeAngeloWoolsey/amusement_park_app
