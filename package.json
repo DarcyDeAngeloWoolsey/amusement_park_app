@@ -1,0 +1,14 @@
+{
+  "name": "amusement_app",
+  "version": "1.0.0",
+  "description": "app for amusement park enthusists to rate rides for increased future enjoyment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darcy DeAngelo-Woolsey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
