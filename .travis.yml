@@ -3,7 +3,7 @@ node_js: node
 deploy:
   provider: heroku
   api_key:
-  secure: c2a2cd68-8cce-490f-824f-a322904582a2
+  secure: c4944dbe-cde6-45f3-9f12-3edd82142524
     app: sheltered-falls-72749
   on:
     repo: DarcyDeAngeloWoolsey/amusement_park_app
