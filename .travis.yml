@@ -3,7 +3,7 @@ node_js: node
 deploy:
   provider: heroku
   api_key:
-    secure: IG/MRyFN4B/Nwn9DhKdgcwEILRAqpXfGfyiRoziO40j+quFYl1qC8Sy/+Vyve0meJyNpi8ToMZD9Kujwgk/czE6LfduushGDA3DECMCNX66jUnHMmv6hc6KT/btbyxSaXeqbGnZoXi62pf4mbWT8JMHT/3lRdMcq6SDni9skrNE2illXfC4vHbXAaYyfela/mQN6zB8Xrqq7/raPU1/JaG5A1yXYMoE+0WGy6W1UFG95jJoEjSM8trqWV3WgA2c+tRD6HsDV6Ta9fGl8nj+3atvwxSnNmGSTENVu77HhvuuWMlyYoX/1bGkqAfHetCtoJzd/K8FZxJlRdOBaSlCJiZpf/4kE0u1zLaUpt+vQEyYgmnXmQpQukESGCswbC8N9lXi4N9o/4Ab4l8mUFnIkQJJJtA5+nuIOcoYY2WEHmsavHqmgr/S3k7tpmDCiBeqNM5qujQQ6Kwaj79+pvh+2TBAwTrcbfcBMuwVA4qnXh7yRg7SIOOgMXv+b/4FIwEIXLZJ16YRljtgfuW45WRTBA5VpjutPZ7d4OoP1mcELmSmXUgF7TclwQIO8P2umSZMslZVRo1D/GwBmgUuQ5bN65bWm3b3w8xRKP9iZggvNwnAu2fuwGyMC6cF1+CdvHR83hmJtqs0PxeUKZUK/dN1chWunKM8nxu+/nNX//b5jWmg=
+  secure: c2a2cd68-8cce-490f-824f-a322904582a2
     app: sheltered-falls-72749
   on:
     repo: DarcyDeAngeloWoolsey/amusement_park_app
