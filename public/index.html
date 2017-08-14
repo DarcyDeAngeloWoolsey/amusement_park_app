@@ -3,12 +3,75 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title of the document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TTR</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 
-<body>
-    Hello world!
-    <p>Demo of how you can use mock data to build your client when you don't have a live API to call yet.</p>
+<body class="marginAuto">
+    <h1 class="m50">Tap That Ride</h1>
+    <h2 class="lead m50">Which ride would you introduce to your friends?</h2>
+
+    <form class="formList m20">
+        <input type="text" name="list" placeholder="Search by amusment park name...">
+        <button class="button btnList" type="submit">RideOn</button>
+    </form>
+
+    <main class="list">
+
+    </main>
+    <button class="button buttonNew" type="button">Add a Ride</button>
+
+    <div class="modalFade modalAdd">
+        <div class="modalBody marginAuto">
+            <form class="formAdd marginAuto">
+                <lable>Amusement Park Name</lable>
+                <input class="displayBlock marginAuto" type="text" name="amusementParkName" placeholder="Disney Hollywood Studios Florida">
+                <label>Ride Name</label>
+                <input class="displayBlock marginAuto" type="text" name="rideName" placeholder="Tower of Terror">
+                <label>Wait Time in Minutes</label>
+                <input class="displayBlock marginAuto" type="text" name="minutesWait" placeholder="120">
+                <label>Thrill Level</label>
+                <input class="displayBlock marginAuto" type="text" name="thrill" placeholder="Low, Medium, High">
+                <label>Give it a Rating</label>
+                <input class="displayBlock marginAuto" type="text" name="rating" placeholder="Enter 1-5">
+                <lable>Say something about this ride</lable>
+                <textarea class="displayBlock marginAuto" name="text" placeholder="Describe in 50 characters"></textarea>
+                <button class="displayBlock floatRight button btnAdd" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modalFade modalDelete">
+        <div class="modalBody marginAuto">
+            <p class="deleteStatement marginAuto">
+                Are you sure you want to delete this ride entry?
+            </p>
+            <button class="button buttonDeleteYes" type="button">Yes</button>
+            <button class="button buttonDeleteNo" type="button">No</button>
+        </div>
+    </div>
+
+    <div class="modalFade modalEdit">
+        <div class="modalBody marginAuto">
+            <form class="formEdit marginAuto">
+                <lable>Amusement Park Name</lable>
+                <input class="displayBlock marginAuto" type="text" name="amusementParkName" placeholder="Disney Hollywood Studios Florida">
+                <label>Ride Name</label>
+                <input class="displayBlock marginAuto" type="text" name="rideName" placeholder="Tower of Terror">
+                <label>Wait Time in Minutes</label>
+                <input class="displayBlock marginAuto" type="text" name="minutesWait" placeholder="120">
+                <label>Thrill Level</label>
+                <input class="displayBlock marginAuto" type="text" name="thrill" placeholder="Low, Medium, High">
+                <label>Give it a Rating</label>
+                <input class="displayBlock marginAuto" type="text" name="rating" placeholder="Enter 1-5">
+                <lable>Say something about this ride</lable>
+                <textarea class="displayBlock marginAuto" name="text" placeholder="Describe in 50 characters"></textarea>
+                <button class="displayBlock floatRight button buttonEditApply" type="submit">Apply</button>
+            </form>
+            <button class="button buttonEditCancel" type="button">Cancel</button>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="../app.js"></script>

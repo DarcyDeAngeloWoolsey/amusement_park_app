@@ -1,0 +1,121 @@
+@import url('reset.css');
+body {
+    font-size: 10px;
+    padding: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3.6em;
+}
+
+h2 {
+    font-size: 2.4em;
+}
+
+h3 {
+    font-size: 2.1em;
+}
+
+h4 {
+    font-size: 1.8em;
+}
+
+h5 {
+    1.6em;
+}
+
+h6 {
+    1.4em;
+}
+
+p {
+    1.4em;
+    display: inline-block;
+}
+
+input {
+    width: 220px;
+}
+
+main,
+form,
+.buttonEditCancel,
+buttonEditApply,
+.buttonNew {
+    position: relative;
+    transform: translateY(50%);
+    -ms-transform: translate(0%, 50%);
+    /* IE 9 */
+    -webkit-transform: translate(0%, 50%);
+    /* Safari */
+    transform: translate(0%, 50%);
+}
+
+.modalFade {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+}
+
+.modalBody {
+    min-height: 400px;
+    width: 90%;
+    background-color: white;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translate(0%, -50%);
+    /* IE 9 */
+    -webkit-transform: translate(0%, -50%);
+    /* Safari */
+    transform: translate(0%, -50%);
+}
+
+.formAdd,
+.formEdit {
+    width: 90%;
+}
+
+.formAdd input,
+.formAdd textarea,
+.formEdit input,
+.formEdit textarea {
+    width: 100%;
+}
+
+.displayBlock {
+    display: block;
+}
+
+.textInline {
+    display: inline-block;
+}
+
+.marginAuto {
+    margin: auto;
+}
+
+.floatRight {
+    float: right;
+}
+
+.m50 {
+    margin-top: 50px;
+}
+
+.m20 {
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 400px) {
+    .modalBody {
+        min-height: 400px;
+        max-width: 350px;
+    }
+}
