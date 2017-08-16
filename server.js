@@ -14,19 +14,19 @@ app.use(express.static('public'));
 
 mongoose.Promise = global.Promise;
 
-app.get('/rides'), (req, res) => {
-RideStatus
-    .find()
-    .exec()
-    .then(rides => {
-        res.json(rides.map(rides => ride.apiRepr()));
-    })
-    .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'A 500 error has occured'
+app.get('/rides', (req, res) => {
+    RideStatus
+        .find()
+        .exec()
+        .then(rides => {
+            res.json(rides.map(rides => ride.apiRepr()));
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({
+                error: 'A 500 error has occured'
+            });
         });
-    });
 });
 
 //changing from running on local to running on mlab/heroku.
