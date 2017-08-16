@@ -1,7 +1,5 @@
-const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
-const morgan = require('morgan');
 
 const {
     DATABASE_URL, PORT
@@ -13,9 +11,6 @@ const {
 const app = express();
 //express will use files in the static public folder
 app.use(express.static('public'));
-
-app.use(morgan('common'));
-app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
 
