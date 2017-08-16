@@ -12,7 +12,16 @@ const app = express();
 //express will use files in the static public folder
 app.use(express.static('public'));
 
+
+//get the index.html at the root
+app.get("/", (request, response) => {
+    response.sendFile(__dirname + '/public/index.html');
+});
+
 mongoose.Promise = global.Promise;
+
+
+//need to figure out how to app.use the functions in app.js
 
 app.get('/rides', (req, res) => {
     RideStatus
