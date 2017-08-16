@@ -25,7 +25,7 @@ mongoose.Promise = global.Promise;
 //need to figure out how to app.use the functions in app.js
 
 app.get('/rides', (req, res) => {
-    consol.log('yep');
+
     RideStatus
         .find()
         .exec()
