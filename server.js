@@ -30,7 +30,7 @@ app.get('/rides', (req, res) => {
         .find()
         .exec()
         .then(rides => {
-            res.json(rides.map(rides => ride.apiRepr()));
+            res.json(rides.map(ride => ride.apiRepr()));
         })
         .catch(err => {
             console.error(err);
