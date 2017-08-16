@@ -73,7 +73,7 @@ rideSchema.methods.apiRepr = function () {
 
 // note that all instance methods and virtual properties on our
 // schema must be defined *before* we make the call to `.model`.
-const RideStatus = mongoose.model('RideStatus', rideSchema);
+const RideStatus = mongoose.model('RideStatus', rideSchema, 'rides');
 
 module.exports = {
     RideStatus

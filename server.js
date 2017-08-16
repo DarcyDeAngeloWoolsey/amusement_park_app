@@ -13,6 +13,7 @@ const app = express();
 app.use(express.static('public'));
 
 
+
 //get the index.html at the root
 app.get("/", (request, response) => {
     response.sendFile(__dirname + '/public/index.html');
