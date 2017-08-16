@@ -43,11 +43,11 @@ const rideSchema = mongoose.Schema({
     rating: {
         type: Number,
         required: true
-    },
-    created: {
+    } //,
+    /*created: {
         type: Date,
         default: Date.now
-    }
+    }*/
 
 });
 
@@ -66,8 +66,8 @@ rideSchema.methods.apiRepr = function () {
         thrill: this.thrill,
         text: this.text,
         minutesWait: this.minutesWait,
-        rating: this.rating,
-        created: this.created
+        rating: this.rating //,
+            /*created: this.created*/
     };
 }
 
