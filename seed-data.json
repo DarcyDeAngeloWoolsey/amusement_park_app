@@ -1,0 +1,19 @@
+{
+    "id": "1111111",
+    "amusementParkName": "Disney World Hollywood Studios",
+    "rideName": "Tower of Terror",
+    "minutesWait": 45,
+    "typeOfRide": "Drop",
+    "thrill": "High",
+    "rating": 5,
+    "text": "Whoooo!"
+} {
+    "id": "2222222",
+    "amusementParkName": "Disney World Hollywood Studios",
+    "rideName": "Rock and Roll Rollercoaster",
+    "minutesWait": 90,
+    "typeOfRide": "Rollercoaster",
+    "thrill": "High",
+    "rating": 5,
+    "text": "Sweet!"
+}

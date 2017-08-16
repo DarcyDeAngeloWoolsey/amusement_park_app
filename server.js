@@ -1,9 +1,40 @@
+const bodyParser = require('body-parser');
 const express = require('express');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+
+const {
+    DATABASE_URL, PORT
+} = require('./config');
+const {
+    RideStatus
+} = require('./models');
+
 const app = express();
 //express will use files in the static public folder
 app.use(express.static('public'));
-//when we put localhost:8080 in url, we will get html
-//app.listen(process.env.PORT || 8080);
+
+app.use(morgan('common'));
+app.use(bodyParser.json());
+
+mongoose.Promise = global.Promise;
+
+app.get('/rides'), (req, res) => {
+RideStatus
+    .find()
+    .exec()
+    .then(rides => {
+        res.json(rides.map(rides => ride.apiRepr()));
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({
+            error: 'A 500 error has occured'
+        });
+    });
+});
+
+//changing from running on local to running on mlab/heroku.
 // both runServer and closeServer need to access the same server object, so we declare `server` here, and then when runServer runs, it assigns a value.
 
 let server;
@@ -47,3 +78,13 @@ if (require.main === module) {
 module.exports = {
     app, runServer, closeServer
 };
+
+// Model, schema
+// 1st - add some ride
+
+// 1. GET /rides - list everything
+// 2. POST /rides - add a new ride
+// PUT /rides/:id - update a ride (with given id)
+// GET /riders/:id - get a single ride
+// DELETE /riders/:id
+// 1. GET /riders?search=something
