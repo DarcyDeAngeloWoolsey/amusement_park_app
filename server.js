@@ -40,15 +40,18 @@ app.get('/rides', (req, res) => {
         });
 });
 
-/*app.get('/rides/:amusementParkName', (req, res) => {
-    RideStatus  .findByAmusementParkName(req.params.amusementParkName)
+app.get('/rides/:amusementParkName', (req, res) => {
+    RideStatus
+        .findByAmusementParkName(req.params.amusementParkName)
         .exec()
         .then(ride => res.json(ride.apiRepr()))
         .catch(err => {
             console.error(err);
-            res.status(500).json({error: 'A 500 error has occured'});
+            res.status(500).json({
+                error: 'A 500 error has occured'
+            });
         });
-});*/
+});
 
 //changing from running on local to running on mlab/heroku.
 // both runServer and closeServer need to access the same server object, so we declare `server` here, and then when runServer runs, it assigns a value.
