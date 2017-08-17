@@ -41,8 +41,7 @@ app.get('/rides', (req, res) => {
 });
 
 app.get('/rides/:amusementParkName', (req, res) => {
-    RideStatus
-        .find(req.params.amusementParkName)
+    RideStatus.findByAmusementParkName(req.params.amusementParkName)
         .exec()
         .then(ride =>
             res.json(ride.apiRepr()))
