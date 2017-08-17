@@ -40,16 +40,25 @@ app.get('/rides', (req, res) => {
         });
 });
 
-app.get('/rides/:amusementParkName', (req, res) => {
+
+app.get('/rides', (req, res) => {
+    const filters = {};
+    const queryableFields = ['amusementParkName'];
+    queryableFields.forEach(field => {
+        if (req.query[field]) {
+            filters[field] = req.query[field];
+        }
+    });
     RideStatus
-        .find(req.params.amusementParkName)
-        .exec()
-        .then(ride => res.json(ride.apiRepr()))
+        .find(filters)
+        .then(RideStatus => res.json(
+            RideStatus.map(ride => ride.apiRepr())
+        ))
         .catch(err => {
             console.error(err);
             res.status(500).json({
-                error: 'A 500 error has occured'
-            });
+                message: 'Internal server error'
+            })
         });
 });
 
