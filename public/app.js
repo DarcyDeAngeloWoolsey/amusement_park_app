@@ -1,4 +1,4 @@
-var MOCK_RIDE_UPDATES = {
+/*var MOCK_RIDE_UPDATES = {
     "rideStatus": [
         {
             "id": "1111111",
@@ -21,18 +21,22 @@ var MOCK_RIDE_UPDATES = {
             "text": "Sweet!",
         }
     ]
-};
+};*/
 
 
 //create button that says "hey I want to see the info" for the function below.. follow all the user stories for UI..
 
 // create a function that passes the callbackFn as the argument and sets a timeout function whose purpose is to pass the mock Json object as its argument, and wait a short time in doing so.
 
-function getRecentRideUpdates(callbackFn) {
+/*function getRecentRideUpdates(callbackFn) {
     setTimeout(function () {
         callbackFn(MOCK_RIDE_UPDATES)
     }, 100);
-}
+}*/
+
+
+
+
 
 // this function stays the same when we connect
 // to real API later
@@ -91,20 +95,28 @@ function getAndDisplayRideUpdates() {
 }
 
 //create a JQuery function whose purpose is to run the above function
+//does the initial funtion of running getAndDisplayRideUpdates, but with real data from .get this time
+function getFullList() {
+    $.get('/rides', function () {
+        getAndDisplayRideUpdates();
+    })
+}
 
-$(function () {
-    getAndDisplayRideUpdates();
-})
+
 $(document).ready(function () {
     $(".modalAdd").hide();
     $(".modalDelete").hide();
     $(".modalEdit").hide();
     $(".list").hide();
 
-    $(".formList").submit(function () {
-        event.preventDefault();
-        $(".list").show();
-
+    //add ability to get list from database instead
+    $(function () {
+        getFullList();
+        $(".formList").submit(function () {
+            event.preventDefault();
+            getFullList();
+            $(".list").show();
+        });
     });
 
     $(".buttonNew").click(function () {
