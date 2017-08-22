@@ -34,9 +34,13 @@
     }, 100);
 }*/
 
+//does the about callback, but with real data from .get
 
-
-
+function getRecentRideUpdates() {
+    setTimeout(function () {
+        $.get('/rides', function displayRideUpdates(data));
+    }, 100);
+}
 
 // this function stays the same when we connect
 // to real API later
@@ -95,15 +99,10 @@ function getAndDisplayRideUpdates() {
 }
 
 //create a JQuery function whose purpose is to run the above function
-//does the initial funtion of running getAndDisplayRideUpdates, but with real data from .get this time
-function getFullList() {
-    $.get('/rides', function () {
-        getAndDisplayRideUpdates();
-    })
-}
 
-
-$(document).ready(function () {
+$(function () {
+    getAndDisplayRideUpdates();
+}) $(document).ready(function () {
     $(".modalAdd").hide();
     $(".modalDelete").hide();
     $(".modalEdit").hide();
@@ -111,10 +110,10 @@ $(document).ready(function () {
 
     //add ability to get list from database instead
     $(function () {
-        getFullList();
+        getRecentRideUpdates();
         $(".formList").submit(function () {
             event.preventDefault();
-            getFullList();
+            getRecentRideUpdates();
             $(".list").show();
         });
     });
