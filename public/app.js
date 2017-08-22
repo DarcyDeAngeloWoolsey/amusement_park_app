@@ -39,10 +39,10 @@
 function getRecentRideUpdates() {
     setTimeout(function () {
         $.get('/rides', function displayRideUpdates(data) {
-            console.log(".get is running");
+
             $(function () {
                 displayRideUpdates(data);
-                console.log("displayRideUpdates is running");
+
             })
         });
     }, 100);
