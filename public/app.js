@@ -104,7 +104,9 @@ function getAndDisplayRideUpdates() {
 
 $(function () {
     getAndDisplayRideUpdates();
-}) $(document).ready(function () {
+})
+
+$(document).ready(function () {
     $(".modalAdd").hide();
     $(".modalDelete").hide();
     $(".modalEdit").hide();
