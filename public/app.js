@@ -38,14 +38,12 @@
 
 function getRecentRideUpdates() {
     setTimeout(function () {
-        $.get('/rides', function displayRideUpdates(data) {
-
-            $(function () {
-                displayRideUpdates(data);
-
-            })
-        });
-    }, 100);
+        $.get('/rides', function () {
+            displayRideUpdates(data);
+            console.log("display working")
+        })
+    });
+}, 100);
 }
 
 // this function stays the same when we connect
