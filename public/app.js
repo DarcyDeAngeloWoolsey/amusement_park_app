@@ -116,7 +116,7 @@ $(document).ready(function () {
 
     //add ability to get list from database instead
     $(function () {
-        getRecentRideUpdates(data.RideStatus);
+        getRecentRideUpdates();
         $(".formList").submit(function () {
             event.preventDefault();
             getRecentRideUpdates();
