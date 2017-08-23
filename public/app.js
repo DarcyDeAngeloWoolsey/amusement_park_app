@@ -36,7 +36,7 @@
 
 //does the about callback, but with real data from .get
 
-function getRecentRideUpdates() {
+function getRecentRideUpdates(displayRideUpdates) {
     setTimeout(function () {
         $.get('/rides', function (data) {
             console.log("getRecent working");
@@ -49,7 +49,7 @@ function getRecentRideUpdates() {
 // this function stays the same when we connect
 // to real API later
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
-function displayRideUpdates(data.ride) {
+function displayRideUpdates(data) {
     for (index in data.ride) {
         $('main').append(
 
