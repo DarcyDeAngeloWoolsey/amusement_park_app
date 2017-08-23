@@ -40,7 +40,7 @@ function getRecentRideUpdates(data) {
     setTimeout(function () {
         $.get('/rides', function () {
             console.log("getRecent working");
-            displayRideUpdates(data.RideStatus);
+            displayRideUpdates();
             console.log("display working");
         });
     }, 100);
@@ -116,10 +116,10 @@ $(document).ready(function () {
 
     //add ability to get list from database instead
     $(function () {
-        getRecentRideUpdates();
+        /*getRecentRideUpdates();*/
         $(".formList").submit(function () {
             event.preventDefault();
-            getRecentRideUpdates();
+            getRecentRideUpdates(data);
             $(".list").show();
         });
     });
