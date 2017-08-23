@@ -61,7 +61,7 @@ function displayRideUpdates(data) {
             '<p>' + data.ride[index].text + '</p>',
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete">' + "Delete" + '</button>',
-
+            '<p>' + "Testing displayRideUpdates running" + '</p>',
             '</main>'
         );
     }
