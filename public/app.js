@@ -50,15 +50,15 @@ function getRecentRideUpdates(data) {
 // to real API later
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
 function displayRideUpdates(data) {
-    for (index in data.rides) {
+    for (index in data.ride) {
         $('main').append(
 
-            '<p>' + data.rides[index].amusementParkName + '</p>',
-            '<p>' + data.rides[index].rideName + '</p>',
-            '<p>' + data.rides[index].minutesWait + '</p>',
-            '<p>' + data.rides[index].thrill + '</p>',
-            '<p>' + data.rides[index].rating + '</p>',
-            '<p>' + data.rides[index].text + '</p>',
+            '<p>' + data.ride[index].amusementParkName + '</p>',
+            '<p>' + data.ride[index].rideName + '</p>',
+            '<p>' + data.ride[index].minutesWait + '</p>',
+            '<p>' + data.ride[index].thrill + '</p>',
+            '<p>' + data.ride[index].rating + '</p>',
+            '<p>' + data.ride[index].text + '</p>',
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete">' + "Delete" + '</button>',
 
