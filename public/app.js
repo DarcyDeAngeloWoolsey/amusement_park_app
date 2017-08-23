@@ -40,7 +40,7 @@ function getRecentRideUpdates() {
     setTimeout(function () {
         $.get('/rides', function () {
             console.log("getRecent working");
-            displayRideUpdates();
+            displayRideUpdates(data);
             console.log("display working");
         });
     }, 100);
