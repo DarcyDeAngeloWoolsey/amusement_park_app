@@ -50,7 +50,9 @@ function getRecentRideUpdates(displayRideUpdates) {
 // to real API later
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
 function displayRideUpdates(data) {
+    console.log("displayRideUpdates working");
     for (index in data.ride) {
+        console.log("index working");
         $('main').append(
 
             '<p>' + data.ride[index].amusementParkName + '</p>',
