@@ -52,7 +52,7 @@ function displayRideUpdates(data) {
     console.log("displayRideUpdates working");
     /*for (index in data.ride) */
 
-    for (i = 0, i < data.length, i++) {
+    for (i = 0; i < data.length; i++) {
         console.log("index working");
         $('main').append(
 
