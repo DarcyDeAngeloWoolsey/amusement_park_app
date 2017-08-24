@@ -122,7 +122,7 @@ $(document).ready(function () {
 
         $(".formList").submit(function () {
             event.preventDefault();
-            getRecentRideUpdates();
+            /*getRecentRideUpdates();*/
             $(".list").show();
         });
     });
