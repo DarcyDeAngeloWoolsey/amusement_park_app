@@ -62,8 +62,10 @@ function displayRideUpdates(data) {
             '<p>' + data[i].thrill + '</p>',
             '<p>' + data[i].rating + '</p>',
             '<p>' + data[i].text + '</p>',
+            '<br />'
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete">' + "Delete" + '</button>',
+            '<br />',
             '</main>'
         );
     }

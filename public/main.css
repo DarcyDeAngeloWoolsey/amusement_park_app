@@ -32,7 +32,6 @@ h6 {
 
 p {
     1.4em;
-    display: inline-block;
 }
 
 input {
@@ -115,5 +114,10 @@ form,
     .modalBody {
         min-height: 400px;
         max-width: 350px;
+    }
+    p {
+        display: inline-block;
+        padding-right: 5px;
+        font-size: 1.6em;
     }
 }
