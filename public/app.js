@@ -56,12 +56,12 @@ function displayRideUpdates(data) {
         console.log("index working");
         $('main').append(
 
-            '<p>' + data.ride[index].amusementParkName + '</p>',
-            '<p>' + data.ride[index].rideName + '</p>',
-            '<p>' + data.ride[index].minutesWait + '</p>',
-            '<p>' + data.ride[index].thrill + '</p>',
-            '<p>' + data.ride[index].rating + '</p>',
-            '<p>' + data.ride[index].text + '</p>',
+            '<p>' + data.ride[i].amusementParkName + '</p>',
+            '<p>' + data.ride[i].rideName + '</p>',
+            '<p>' + data.ride[i].minutesWait + '</p>',
+            '<p>' + data.ride[i].thrill + '</p>',
+            '<p>' + data.ride[i].rating + '</p>',
+            '<p>' + data.ride[i].text + '</p>',
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete">' + "Delete" + '</button>',
             '<p>' + "Testing displayRideUpdates running" + '</p>',
