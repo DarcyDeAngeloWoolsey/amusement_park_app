@@ -65,7 +65,7 @@ app.get('/rides', (req, res) => {
 //add a ride
 app.post('/rides', (req, res) => {
 
-    const requiredFields = ['amusementParkName', 'rideName', 'minutesWait', 'thrill', 'rating'];
+    const requiredFields = ['amusementParkName', 'rideName', 'minutesWait', 'typeOfRide', 'thrill', 'rating'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
@@ -80,6 +80,7 @@ app.post('/rides', (req, res) => {
             amusementParkName: req.body.amusementParkName,
             rideName: req.body.rideName,
             minutesWait: req.body.minutesWait,
+            typeOfRide: req.body.typeOfRide,
             thrill: req.body.thrill,
             rating: req.body.rating,
             text: req.body.text,

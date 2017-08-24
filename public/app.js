@@ -59,6 +59,7 @@ function displayRideUpdates(data) {
             '<p>' + data[i].amusementParkName + '</p>',
             '<p>' + data[i].rideName + '</p>',
             '<p>' + data[i].minutesWait + '</p>',
+            '<p>' + data[i].typeOfRide + '</p>',
             '<p>' + data[i].thrill + '</p>',
             '<p>' + data[i].rating + '</p>',
             '<p>' + data[i].text + '</p>',
