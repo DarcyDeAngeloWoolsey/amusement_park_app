@@ -36,12 +36,13 @@
 
 //does the about callback, but with real data from .get
 
-function getRecentRideUpdates(displayRideUpdates) {
+function getRecentRideUpdates(data) {
     setTimeout(function () {
         $.get('/rides', function (data) {
             console.log("getRecent working");
             /* $('.js-full-list').text(displayRideUpdates);*/
             console.log("display working");
+            displayRideUpdates(getRecentRideUpdates);
         });
     }, 100);
 }
