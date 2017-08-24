@@ -62,6 +62,38 @@ app.get('/rides', (req, res) => {
         });
 });
 
+//add a ride
+app.post('/rides', (req, res) => {
+
+    const requiredFields = ['amusementParkName', 'rideName', 'minutesWait', 'thrill', 'rating'];
+    for (let i = 0; i < requiredFields.length; i++) {
+        const field = requiredFields[i];
+        if (!(field in req.body)) {
+            const message = `Missing \`${field}\` in request body`
+            console.error(message);
+            return res.status(400).send(message);
+        }
+    }
+
+    RideStatus
+        .create({
+            amusementParkName: req.body.amusementParkName,
+            rideName: req.body.rideName,
+            minutesWait: req.body.minutesWait,
+            thrill: req.body.thrill,
+            rating: req.body.rating,
+            text: req.body.text,
+        })
+        .then(
+            ride => res.status(201).json(ride.apiRepr()))
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({
+                message: 'Internal server error'
+            });
+        });
+});
+
 //changing from running on local to running on mlab/heroku.
 // both runServer and closeServer need to access the same server object, so we declare `server` here, and then when runServer runs, it assigns a value.
 
