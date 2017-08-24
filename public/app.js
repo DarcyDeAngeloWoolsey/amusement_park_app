@@ -64,7 +64,6 @@ function displayRideUpdates(data) {
             '<p>' + data[i].text + '</p>',
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete">' + "Delete" + '</button>',
-            '<p>' + "Testing displayRideUpdates running" + '</p>',
             '</main>'
         );
     }
@@ -122,7 +121,6 @@ $(document).ready(function () {
 
         $(".formList").submit(function () {
             event.preventDefault();
-            /*getRecentRideUpdates();*/
             $(".list").show();
         });
     });

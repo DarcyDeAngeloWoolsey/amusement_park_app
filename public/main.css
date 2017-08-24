@@ -41,9 +41,7 @@ input {
 
 main,
 form,
-.buttonEditCancel,
-buttonEditApply,
-.buttonNew {
+{
     position: relative;
     transform: translateY(50%);
     -ms-transform: translate(0%, 50%);
