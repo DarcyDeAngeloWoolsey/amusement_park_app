@@ -40,8 +40,6 @@ function getRecentRideUpdates(data) {
     setTimeout(function () {
         $.get('/rides', function (data) {
             console.log("getRecent working");
-            /* $('.js-full-list').text(displayRideUpdates);*/
-            console.log("display working");
             displayRideUpdates(getRecentRideUpdates);
         });
     }, 100);
@@ -52,7 +50,9 @@ function getRecentRideUpdates(data) {
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
 function displayRideUpdates(data) {
     console.log("displayRideUpdates working");
-    for (index in data.ride) {
+    /*for (index in data.ride) */
+
+    for (i = 0, len = data.length, i < len; i++) {
         console.log("index working");
         $('main').append(
 
