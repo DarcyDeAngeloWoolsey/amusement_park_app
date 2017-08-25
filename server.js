@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const {
     DATABASE_URL, PORT
@@ -11,6 +12,7 @@ const {
 const app = express();
 //express will use files in the static public folder
 app.use(express.static('public'));
+app.use(bodyParser.json())
 
 
 
@@ -24,22 +26,21 @@ mongoose.Promise = global.Promise;
 
 //need to figure out how to app.use the functions in app.js
 
-app.get('/rides', (req, res) => {
-
-    RideStatus
-        .find()
-        .exec()
-        .then(rides => {
-            res.json(rides.map(ride => ride.apiRepr()));
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).json({
-                error: 'A 500 error has occured'
-            });
-        });
-});
-
+//app.get('/rides', (req, res) => {
+//
+//    RideStatus
+//        .find()
+//        .exec()
+//        .then(rides => {
+//            res.json(rides.map(ride => ride.apiRepr()));
+//        })
+//        .catch(err => {
+//            console.error(err);
+//            res.status(500).json({
+//                error: 'A 500 error has occured'
+//            });
+//        });
+//});
 
 app.get('/rides', (req, res) => {
     const filters = {};
@@ -51,9 +52,9 @@ app.get('/rides', (req, res) => {
     });
     RideStatus
         .find(filters)
-        .then(RideStatus => res.json(
-            RideStatus.map(ride => ride.apiRepr())
-        ))
+        .then(rides => {
+            res.json(rides.map(ride => ride.apiRepr()))
+        })
         .catch(err => {
             console.error(err);
             res.status(500).json({
@@ -68,6 +69,7 @@ app.post('/rides', (req, res) => {
     const requiredFields = ['amusementParkName', 'rideName', 'minutesWait', 'typeOfRide', 'thrill', 'rating'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
+        console.log(field, req.body)
         if (!(field in req.body)) {
             const message = `Missing \`${field}\` in request body`
             console.error(message);

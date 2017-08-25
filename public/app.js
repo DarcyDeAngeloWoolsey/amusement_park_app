@@ -38,6 +38,8 @@
 
 function getRecentRideUpdates(data) {
     setTimeout(function () {
+        //        $.ajax({ method: 'get' })
+        //        $.post
         $.get('/rides', function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
@@ -50,12 +52,28 @@ function getRecentRideUpdates(data) {
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
 function displayRideUpdates(data) {
     console.log("displayRideUpdates working");
-    /*for (index in data.ride) */
+    /*for (index in data ) */
 
+    // forEach
+    //     data.forEach(ride => {
+    //        $('main').append(
+    //            '<p>' + ride.amusementParkName + '</p>',
+    //            '<p>' + ride.rideName + '</p>',
+    //            '<p>' + ride.minutesWait + '</p>',
+    //            '<p>' + ride.typeOfRide + '</p>',
+    //            '<p>' + ride.thrill + '</p>',
+    //            '<p>' + ride.rating + '</p>',
+    //            '<p>' + ride.text + '</p>',
+    //            '<br />',
+    //            '<button class="btnEdit">' + "Edit" + '</button>',
+    //            '<button class="btnDelete">' + "Delete" + '</button>',
+    //            '<br />',
+    //            '</main>'
+    //        );
+    //    });
     for (i = 0; i < data.length; i++) {
         console.log("index working");
         $('main').append(
-
             '<p>' + data[i].amusementParkName + '</p>',
             '<p>' + data[i].rideName + '</p>',
             '<p>' + data[i].minutesWait + '</p>',
@@ -125,6 +143,14 @@ $(document).ready(function () {
         $(".formList").submit(function () {
             event.preventDefault();
             $(".list").show();
+
+
+            $.get('/rides', {
+                amusementParkName: $('[name=list]').val()
+            }, function (data) {
+                console.log("getRecent working");
+                displayRideUpdates(data);
+            });
         });
     });
 
