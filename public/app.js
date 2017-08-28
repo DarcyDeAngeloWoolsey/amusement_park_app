@@ -45,6 +45,7 @@ function getRecentRideUpdates(data) {
         }, function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
+            $(".list").show();
         });
     }, 100);
 }
@@ -146,7 +147,7 @@ $(document).ready(function () {
         $(".formList").submit(function () {
             event.preventDefault();
             getRecentRideUpdates();
-            $(".list").show();
+
 
         });
     });
