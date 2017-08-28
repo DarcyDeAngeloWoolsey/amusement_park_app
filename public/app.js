@@ -148,7 +148,7 @@ $(document).ready(function () {
         $(".formList").submit(function () {
             event.preventDefault();
             getRecentRideUpdates();
-
+            $(".list").show();
         });
     });
 
