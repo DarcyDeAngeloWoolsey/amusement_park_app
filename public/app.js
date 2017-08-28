@@ -157,6 +157,7 @@ $(document).ready(function () {
             });
             $(".list").empty();
             $(".list").show();
+            $(".formList").reset();
         });
     });
 
