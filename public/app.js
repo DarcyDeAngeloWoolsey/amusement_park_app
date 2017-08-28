@@ -76,7 +76,7 @@ function displayRideUpdates(data) {
     //    });
     for (i = 0; i < data.length; i++) {
         console.log("index working");
-        $('main').append(
+        $('main').replaceWith(
             '<p>' + data[i].amusementParkName + '</p>',
             '<p>' + data[i].rideName + '</p>',
             '<p>' + data[i].minutesWait + '</p>',
@@ -87,8 +87,7 @@ function displayRideUpdates(data) {
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete">' + "Delete" + '</button>',
-            '<br />',
-            '</main>'
+            '<br />'
         );
     }
     $(".btnEdit").click(function (event) {
@@ -148,7 +147,7 @@ $(document).ready(function () {
         $(".formList").submit(function () {
             event.preventDefault();
             getRecentRideUpdates();
-            $(".list").html();
+            $(".list").show();
         });
     });
 
