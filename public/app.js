@@ -127,14 +127,17 @@ function displayRideUpdates(data) {
 //create a function whose purpose is to get and display the updates by passing the above functions as the argument
 function getAndDisplayRideUpdates() {
     getRecentRideUpdates(displayRideUpdates);
-    $(".list").show();
+
 }
 
 //create a JQuery function whose purpose is to run the above function
 
 $(function () {
     getAndDisplayRideUpdates();
+    $(".list").show();
 })
+
+$(".list").show();
 
 $(document).ready(function () {
     $(".modalAdd").hide();
