@@ -134,10 +134,7 @@ function getAndDisplayRideUpdates() {
 
 $(function () {
     getAndDisplayRideUpdates();
-    $(".list").show();
 })
-
-$(".list").show();
 
 $(document).ready(function () {
     $(".modalAdd").hide();
