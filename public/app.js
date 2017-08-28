@@ -76,7 +76,7 @@ function displayRideUpdates(data) {
     //    });
     for (i = 0; i < data.length; i++) {
         console.log("index working");
-        $('main').html(
+        $('main').append(
             '<p>' + data[i].amusementParkName + '</p>',
             '<p>' + data[i].rideName + '</p>',
             '<p>' + data[i].minutesWait + '</p>',
@@ -148,7 +148,7 @@ $(document).ready(function () {
         $(".formList").submit(function () {
             event.preventDefault();
             getRecentRideUpdates();
-            $(".list").show();
+            $(".list").html();
         });
     });
 
