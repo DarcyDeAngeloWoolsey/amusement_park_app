@@ -45,7 +45,7 @@ function getRecentRideUpdates(data) {
         }, function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
-            $(".list").show();
+
         });
     }, 100);
 }
@@ -127,6 +127,7 @@ function displayRideUpdates(data) {
 //create a function whose purpose is to get and display the updates by passing the above functions as the argument
 function getAndDisplayRideUpdates() {
     getRecentRideUpdates(displayRideUpdates);
+    $(".list").show();
 }
 
 //create a JQuery function whose purpose is to run the above function
@@ -147,7 +148,6 @@ $(document).ready(function () {
         $(".formList").submit(function () {
             event.preventDefault();
             getRecentRideUpdates();
-            $(".list").hide();
 
         });
     });
