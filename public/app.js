@@ -52,6 +52,10 @@ function displayRideUpdates(data) {
 
     if (data.length == 0) {
         console.log("no data");
+        $('main').append(
+            '<p>' + "Sorry there are no matches" + '</p>',
+            '<br />'
+        );
     }
     /*for (index in data ) */
 
