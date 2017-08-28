@@ -40,12 +40,10 @@ function getRecentRideUpdates(data) {
     setTimeout(function () {
         //        $.ajax({ method: 'get' })
         //        $.post
-        $.get('/rides', {
-            amusementParkName: $('[name=list]').val()
-        }, function (data) {
+        /*$.get('/rides', function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
-        });
+        });*/
     }, 100);
 }
 
@@ -147,7 +145,12 @@ $(document).ready(function () {
             $(".list").show();
 
 
-
+            $.get('/rides', {
+                amusementParkName: $('[name=list]').val()
+            }, function (data) {
+                console.log("getRecent working");
+                displayRideUpdates(data);
+            });
         });
     });
 
