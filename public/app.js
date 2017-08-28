@@ -147,6 +147,7 @@ $(document).ready(function () {
                 displayRideUpdates(data);
 
             });
+            $(".list").empty();
             $(".list").show();
         });
     });
