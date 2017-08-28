@@ -40,13 +40,7 @@ function getRecentRideUpdates(data) {
     setTimeout(function () {
         //        $.ajax({ method: 'get' })
         //        $.post
-        $.get('/rides', {
-            amusementParkName: $('[name=list]').val()
-        }, function (data) {
-            console.log("getRecent working");
-            displayRideUpdates(data);
 
-        });
     }, 100);
 }
 
@@ -76,7 +70,7 @@ function displayRideUpdates(data) {
     //    });
     for (i = 0; i < data.length; i++) {
         console.log("index working");
-        $('main').replaceWith(
+        $('main').append(
             '<p>' + data[i].amusementParkName + '</p>',
             '<p>' + data[i].rideName + '</p>',
             '<p>' + data[i].minutesWait + '</p>',
@@ -146,7 +140,13 @@ $(document).ready(function () {
 
         $(".formList").submit(function () {
             event.preventDefault();
-            getRecentRideUpdates();
+            $.get('/rides', {
+                amusementParkName: $('[name=list]').val()
+            }, function (data) {
+                console.log("getRecent working");
+                displayRideUpdates(data);
+
+            });
             $(".list").show();
         });
     });
