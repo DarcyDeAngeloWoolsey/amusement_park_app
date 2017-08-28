@@ -99,7 +99,7 @@ function displayRideUpdates(data) {
         event.preventDefault();
         $(".modalDelete").show();
     });
-    $(".list").show();
+
 }
 
 //$(".btnDelete").on('click', function (event) {
@@ -145,9 +145,8 @@ $(document).ready(function () {
 
         $(".formList").submit(function () {
             event.preventDefault();
-
-
-
+            getRecentRideUpdates(data);
+            $(".list").show();
 
         });
     });
