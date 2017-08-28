@@ -49,6 +49,10 @@ function getRecentRideUpdates(data) {
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
 function displayRideUpdates(data) {
     console.log("displayRideUpdates working");
+
+    if (data.length == 0) {
+        console.log("no data");
+    }
     /*for (index in data ) */
 
     // forEach
