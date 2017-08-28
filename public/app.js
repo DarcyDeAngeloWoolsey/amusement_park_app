@@ -76,7 +76,7 @@ function displayRideUpdates(data) {
     //    });
     for (i = 0; i < data.length; i++) {
         console.log("index working");
-        $('main').append(
+        $('main').html(
             '<p>' + data[i].amusementParkName + '</p>',
             '<p>' + data[i].rideName + '</p>',
             '<p>' + data[i].minutesWait + '</p>',
