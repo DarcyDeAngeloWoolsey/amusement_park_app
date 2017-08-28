@@ -41,7 +41,7 @@ function getRecentRideUpdates(data) {
         //        $.ajax({ method: 'get' })
         //        $.post
         $.get('/rides', {
-            amusementParkName: 'boo' //$('[name=list]').val()
+            amusementParkName: $('[name=list]').val()
         }, function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
