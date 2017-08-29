@@ -169,7 +169,7 @@ $(document).ready(function () {
 
     $(".formAdd").submit(function () {
         event.preventDefault();
-        $(".modalAdd").hide();
+
         $.post('/rides', {
             amusementParkName: $('[name=amusementParkName]').val(),
             rideName: $('[name=rideName]').val(),
@@ -181,6 +181,7 @@ $(document).ready(function () {
         }, function (data) {
             console.log("postRides working");
             displayRideUpdates(data);
+            $(".modalAdd").hide();
 
         });
         $(".list").empty();
