@@ -101,6 +101,14 @@ function displayRideUpdates(data) {
 
     $(".btnDelete").click(function (event) {
         event.preventDefault();
+        $(this).siblings(function {
+            $.get('/rides', {
+                amusementParkName: $('[name=list]').val()
+            }, function (data) {
+                console.log("running get rides in delete button");
+            });
+        });
+
         $(".modalDelete").show();
     });
 
@@ -201,13 +209,16 @@ $(document).ready(function () {
     $(".buttonDeleteYes").click(function () {
         event.preventDefault();
         console.log("running buttonDeleteYes in app");
-        $.delete('/rides/:id', function (data) {
+
+        //need to figure out how to get the id of this data that we want to delete.
+
+        /*$.delete('/rides/:id', function (data) {
             console.log("postRides working");
             displayRideUpdates(data);
             $(".modalDelete").hide();
         });
         (".list").empty();
-        $(".list").show();
+        $(".list").show();*/
     });
 
     $(".buttonDeleteNo").click(function () {
