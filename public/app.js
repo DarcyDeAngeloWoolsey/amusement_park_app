@@ -91,11 +91,11 @@ function displayRideUpdates(data) {
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
             /*data attribute with id from database*/
-            '<button class="btnDelete" data-id=data[i].id>' +
+            '<button class="btnDelete">' +
             "Delete" + '</button>',
             '<br />'
         );
-
+        $(".btnDelete").data("id") === data[i].id;
     }
     $(".btnEdit").click(function (event) {
         event.preventDefault();
