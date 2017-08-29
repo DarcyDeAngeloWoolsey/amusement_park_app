@@ -201,7 +201,7 @@ $(document).ready(function () {
     $(".buttonDeleteYes").click(function () {
         event.preventDefault();
         console.log("running buttonDeleteYes in app");
-        $.delete('/rides', function (data) {
+        $.delete('/rides/:id', function (data) {
             console.log("postRides working");
             displayRideUpdates(data);
             $(".modalDelete").hide();
