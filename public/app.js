@@ -90,7 +90,9 @@ function displayRideUpdates(data) {
             '<p>' + data[i].text + '</p>',
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
-            '<button class="btnDelete">' + "Delete" + '</button>',
+            /*data attribute with id from database*/
+            '<button class="btnDelete">' +
+            data[i]._id + '</button>',
             '<br />'
         );
     }
@@ -102,6 +104,7 @@ function displayRideUpdates(data) {
     $(".btnDelete").click(function (event) {
         event.preventDefault();
         /*$(this).siblings(function (data) {
+
             $.get('/rides', {
                 amusementParkName: $('[name=list]').val()
             }, function (data) {
