@@ -96,6 +96,7 @@ function displayRideUpdates(data) {
             '<br />'
         );
         $(".btnDelete").data("id") === data[i].id;
+
     }
     $(".btnEdit").click(function (event) {
         event.preventDefault();
@@ -112,7 +113,7 @@ function displayRideUpdates(data) {
                 console.log("running get rides in delete button");
             });
             });*/
-
+        alert($(".btnDelete").data("id"));
         $(".modalDelete").show();
     });
 
