@@ -103,6 +103,23 @@ app.post('/rides', (req, res) => {
         });
 });
 
+app.delete('/rides/:id', (req, res) => {
+    BlogPost
+        .findByIdAndRemove(req.params.id)
+        .exec()
+        .then(() => {
+            res.status(204).json({
+                message: 'success'
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({
+                error: 'something went terribly wrong'
+            });
+        });
+});
+
 //changing from running on local to running on mlab/heroku.
 // both runServer and closeServer need to access the same server object, so we declare `server` here, and then when runServer runs, it assigns a value.
 

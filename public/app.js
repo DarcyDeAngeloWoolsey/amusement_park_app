@@ -76,6 +76,10 @@ function displayRideUpdates(data) {
     //            '</main>'
     //        );
     //    });
+    if (typeof (data) !== Array) {
+        data = [data]
+    }
+
     for (i = 0; i < data.length; i++) {
         console.log("index working");
         $('main').append(
