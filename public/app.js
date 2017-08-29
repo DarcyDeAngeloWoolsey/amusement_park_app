@@ -92,7 +92,7 @@ function displayRideUpdates(data) {
             '<button class="btnEdit">' + "Edit" + '</button>',
             /*data attribute with id from database*/
             '<button class="btnDelete">' +
-            data[i]._id + '</button>',
+            data[i].id + '</button>',
             '<br />'
         );
     }
