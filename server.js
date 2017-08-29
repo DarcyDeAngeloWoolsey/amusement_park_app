@@ -12,7 +12,10 @@ const {
 const app = express();
 //express will use files in the static public folder
 app.use(express.static('public'));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 
 
@@ -65,7 +68,7 @@ app.get('/rides', (req, res) => {
 
 //add a ride
 app.post('/rides', (req, res) => {
-    console.log("running post in server");
+    console.log("running post in server", req.body);
     const requiredFields = ['amusementParkName', 'rideName', 'minutesWait', 'typeOfRide', 'thrill', 'rating'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
