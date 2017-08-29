@@ -70,6 +70,9 @@ app.post('/rides', (req, res) => {
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         console.log(field, req.body)
+        if (field in req.body) {
+            console.log("field in req.body");
+        }
         if (!(field in req.body)) {
             const message = `Missing \`${field}\` in request body`
             console.error(message);
