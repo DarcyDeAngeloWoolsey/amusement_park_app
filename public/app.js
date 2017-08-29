@@ -101,7 +101,7 @@ function displayRideUpdates(data) {
 
     $(".btnDelete").click(function (event) {
         event.preventDefault();
-        $(this).siblings(function {
+        $(this).siblings(function (data) {
             $.get('/rides', {
                 amusementParkName: $('[name=list]').val()
             }, function (data) {
