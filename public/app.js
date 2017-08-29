@@ -95,6 +95,7 @@ function displayRideUpdates(data) {
             "Delete" + '</button>',
             '<br />'
         );
+
     }
     $(".btnEdit").click(function (event) {
         event.preventDefault();
