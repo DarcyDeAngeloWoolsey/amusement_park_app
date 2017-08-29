@@ -169,7 +169,7 @@ $(document).ready(function () {
 
     $(".formAdd").submit(function () {
         event.preventDefault();
-
+        console.log("running formadd in app");
         $.post('/rides', {
             amusementParkName: $('[name=amusementParkName]').val(),
             rideName: $('[name=rideName]').val(),
