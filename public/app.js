@@ -170,7 +170,22 @@ $(document).ready(function () {
     $(".formAdd").submit(function () {
         event.preventDefault();
         $(".modalAdd").hide();
+        $.post('/rides', {
+            amusementParkName: $('[name=amusementParkName]').val(),
+            rideName: $('[name=rideName]').val(),
+            minutesWait: $('[name=minutesWait]').val(),
+            typeOfRide: $('[name=typeOfRide]').val(),
+            thrill: $('[name=thrill]').val(),
+            rating: $('[name=rating]').val(),
+            text: $('[name=text]').val(),
+        }, function (data) {
+            console.log("postRides working");
+            displayRideUpdates(data);
+
+        });
+        $(".list").empty();
         $(".list").show();
+        $(".formList")[0].reset();
 
     });
 
