@@ -177,7 +177,7 @@ $(document).ready(function () {
             typeOfRide: $('[name=typeOfRide]').val(),
             thrill: $('[name=thrill]').val(),
             rating: $('[name=rating]').val(),
-            text: $('[name=text]').val(),
+            text: $('[name=text]').val()
         }, function (data) {
             console.log("postRides working");
             displayRideUpdates(data);

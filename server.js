@@ -85,7 +85,7 @@ app.post('/rides', (req, res) => {
             typeOfRide: req.body.typeOfRide,
             thrill: req.body.thrill,
             rating: req.body.rating,
-            text: req.body.text,
+            text: req.body.text
         })
         .then(
             ride => res.status(201).json(ride.apiRepr()))
