@@ -104,7 +104,7 @@ app.post('/rides', (req, res) => {
 });
 
 app.delete('/rides/:id', (req, res) => {
-    BlogPost
+    RideStatus
         .findByIdAndRemove(req.params.id)
         .exec()
         .then(() => {

@@ -193,13 +193,20 @@ $(document).ready(function () {
 
     $(".buttonCloseModal").click(function () {
         event.preventDefault();
+
         $(".modalAdd").hide();
         $(".list").show();
     });
 
     $(".buttonDeleteYes").click(function () {
         event.preventDefault();
-        $(".modalDelete").hide();
+        console.log("running buttonDeleteYes in app");
+        $.delete('/rides', function (data) {
+            console.log("postRides working");
+            displayRideUpdates(data);
+            $(".modalDelete").hide();
+        });
+        (".list").empty();
         $(".list").show();
     });
 
