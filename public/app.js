@@ -182,7 +182,6 @@ $(document).ready(function () {
             console.log("postRides working");
             displayRideUpdates(data);
             $(".modalAdd").hide();
-
         });
         $(".list").empty();
         $(".list").show();
@@ -190,6 +189,11 @@ $(document).ready(function () {
 
     });
 
+    $(".buttonCloseModal").click(function () {
+        event.preventDefault();
+        $(".modalAdd").hide();
+        $(".list").show();
+    });
 
     $(".buttonDeleteYes").click(function () {
         event.preventDefault();
