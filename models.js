@@ -34,7 +34,7 @@ const rideSchema = mongoose.Schema({
     },
     text: {
         type: String,
-        required: true
+        required: false
     },
     minutesWait: {
         type: Number,
