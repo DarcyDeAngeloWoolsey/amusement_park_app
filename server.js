@@ -65,7 +65,7 @@ app.get('/rides', (req, res) => {
 
 //add a ride
 app.post('/rides', (req, res) => {
-
+    console.log("running post in server");
     const requiredFields = ['amusementParkName', 'rideName', 'minutesWait', 'typeOfRide', 'thrill', 'rating'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
