@@ -186,7 +186,7 @@ $(document).ready(function () {
         });
         $(".list").empty();
         $(".list").show();
-        $(".formList")[0].reset();
+        $(".formAdd")[0].reset();
 
     });
 
