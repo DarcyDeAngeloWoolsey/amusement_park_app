@@ -97,26 +97,32 @@ function displayRideUpdates(data) {
         );
         let id = data[i].id;
         $('.btnDelete').data("id", id);
-        alert($('.btnDelete').data("id"));
-    }
-    $(".btnEdit").click(function (event) {
-        event.preventDefault();
-        $(".modalEdit").show();
-    });
+        $('.btnDelete').click(function () {
+                $(".buttonDeleteYes").data("id", id);
+                $('.buttonDeleteYes").click(function () {
+                    alert($('.buttonDeleteYes').data("id"));
+                });
+        });
+    /*alert($('.btnDelete').data("id"));*/
+}
+$(".btnEdit").click(function (event) {
+    event.preventDefault();
+    $(".modalEdit").show();
+});
 
-    $(".btnDelete").click(function (event) {
-        event.preventDefault();
-        /*$(this).siblings(function (data) {
+$(".btnDelete").click(function (event) {
+    event.preventDefault();
+    /*$(this).siblings(function (data) {
 
-            $.get('/rides', {
-                amusementParkName: $('[name=list]').val()
-            }, function (data) {
-                console.log("running get rides in delete button");
-            });
-            });*/
+        $.get('/rides', {
+            amusementParkName: $('[name=list]').val()
+        }, function (data) {
+            console.log("running get rides in delete button");
+        });
+        });*/
 
-        $(".modalDelete").show();
-    });
+    $(".modalDelete").show();
+});
 
 }
 
@@ -218,11 +224,11 @@ $(document).ready(function () {
 
         //need to figure out how to get the id of this data that we want to delete.
 
-        $.delete('/rides/:id', function (data) {
+        /*$.delete('/rides/:id', function (data) {
             console.log("postRides working");
             displayRideUpdates(data);
             $(".modalDelete").hide();
-        });
+        });*/
         (".list").empty();
         $(".list").show();
     });
