@@ -104,6 +104,7 @@ function displayRideUpdates(data) {
                 '<button class="button buttonDeleteNo" type="button">' + No + '</button>'
             )
             $(".buttonDeleteYes").data("id", id);
+            $(".modalDelete").show();
             $('.buttonDeleteYes').click(function () {
                 alert($('.buttonDeleteYes').data("id"));
             });
