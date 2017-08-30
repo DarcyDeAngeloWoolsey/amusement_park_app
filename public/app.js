@@ -101,7 +101,7 @@ function displayRideUpdates(data) {
             alert($('.btnDelete').data("id"));
             $(".deleteBtnDiv").append(
                 '<button class="button buttonDeleteYes type="button">' + "Yes" + '</button>',
-                '<button class="button buttonDeleteNo" type="button">' + No + '</button>'
+                '<button class="button buttonDeleteNo" type="button">' + "No" + '</button>'
             )
             $(".buttonDeleteYes").data("id", id);
             $(".modalDelete").show();
