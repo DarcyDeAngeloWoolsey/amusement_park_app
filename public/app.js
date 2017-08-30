@@ -95,8 +95,8 @@ function displayRideUpdates(data) {
             "Delete" + '</button>',
             '<br />'
         );
-        $(".btnDelete").data("id") === data[i].id;
-        alert($(".btnDelete").data("id"));
+        let id = data[i].id;
+        alert(id);
     }
     $(".btnEdit").click(function (event) {
         event.preventDefault();
