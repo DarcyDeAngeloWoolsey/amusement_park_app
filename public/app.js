@@ -98,7 +98,12 @@ function displayRideUpdates(data) {
         let id = data[i].id;
         $('.btnDelete').data("id", id);
         $('.btnDelete').click(function () {
-            $(".buttonDeleteYes").data("id", $(this).id);
+            alert($('.btnDelete').data("id"));
+            $(".deleteBtnDiv").append(
+                '<button class="button buttonDeleteYes type="button">' + "Yes" + '</button>',
+                '<button class="button buttonDeleteNo" type="button">' + No + '</button>'
+            )
+            $(".buttonDeleteYes").data("id", id);
             $('.buttonDeleteYes').click(function () {
                 alert($('.buttonDeleteYes').data("id"));
             });
