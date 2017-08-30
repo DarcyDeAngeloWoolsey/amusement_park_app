@@ -98,31 +98,31 @@ function displayRideUpdates(data) {
         let id = data[i].id;
         $('.btnDelete').data("id", id);
         $('.btnDelete').click(function () {
-                $(".buttonDeleteYes").data("id", id);
-                $('.buttonDeleteYes").click(function () {
-                    alert($('.buttonDeleteYes').data("id"));
-                });
+            $(".buttonDeleteYes").data("id", id);
+            $('.buttonDeleteYes').click(function () {
+                alert($('.buttonDeleteYes').data("id"));
+            });
         });
-    /*alert($('.btnDelete').data("id"));*/
-}
-$(".btnEdit").click(function (event) {
-    event.preventDefault();
-    $(".modalEdit").show();
-});
+        /*alert($('.btnDelete').data("id"));*/
+    }
+    $(".btnEdit").click(function (event) {
+        event.preventDefault();
+        $(".modalEdit").show();
+    });
 
-$(".btnDelete").click(function (event) {
-    event.preventDefault();
-    /*$(this).siblings(function (data) {
+    $(".btnDelete").click(function (event) {
+        event.preventDefault();
+        /*$(this).siblings(function (data) {
 
-        $.get('/rides', {
-            amusementParkName: $('[name=list]').val()
-        }, function (data) {
-            console.log("running get rides in delete button");
-        });
-        });*/
+            $.get('/rides', {
+                amusementParkName: $('[name=list]').val()
+            }, function (data) {
+                console.log("running get rides in delete button");
+            });
+            });*/
 
-    $(".modalDelete").show();
-});
+        $(".modalDelete").show();
+    });
 
 }
 
