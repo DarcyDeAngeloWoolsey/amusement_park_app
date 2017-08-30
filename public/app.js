@@ -218,20 +218,20 @@ $(document).ready(function () {
         $(".list").show();
     });
 
-    $(".buttonDeleteYes").click(function () {
+    /*$(".buttonDeleteYes").click(function () {
         event.preventDefault();
         console.log("running buttonDeleteYes in app");
 
         //need to figure out how to get the id of this data that we want to delete.
 
-        /*$.delete('/rides/:id', function (data) {
+        $.delete('/rides/:id', function (data) {
             console.log("postRides working");
             displayRideUpdates(data);
             $(".modalDelete").hide();
-        });*/
+        });
         (".list").empty();
         $(".list").show();
-    });
+    });*/
 
     $(".buttonDeleteNo").click(function () {
         event.preventDefault();
