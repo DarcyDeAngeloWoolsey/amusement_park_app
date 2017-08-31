@@ -80,7 +80,7 @@ function displayRideUpdates(data) {
 
     for (i = 0; i < data.length; i++) {
         console.log("index working");
-        let id = data[i].id;
+        var id = data[i].id;
         /*$('.btnDelete').data("id", id);*/
         /*$(".btnDelete").data({
             "id": id
@@ -103,20 +103,6 @@ function displayRideUpdates(data) {
             id + '</button>',
             '<br />'
         );
-
-
-        $('.btnDelete').click(function () {
-            alert($(this).data("id", id));
-            /* $(".deleteBtnDiv").append(
-                '<button class="button buttonDeleteYes type="button">' + "Yes" + '</button>',
-                '<button class="button buttonDeleteNo" type="button">' + "No" + '</button>'
-            )*/
-            /*$(".buttonDeleteYes").data("id", id);*/
-            $(".modalDelete").show();
-            /*$('.buttonDeleteYes').click(function () {
-                alert($('.buttonDeleteYes').data("id"));
-            });*/
-        });
 
     }
 
