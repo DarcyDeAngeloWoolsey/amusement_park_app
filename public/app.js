@@ -79,14 +79,13 @@ function displayRideUpdates(data) {
 
 
     for (i = 0; i < data.length; i++) {
-        console.log("index working");
-        const id = data[i].id;
+        let id = data[i].id;
         /*$('.btnDelete').data("id", id);*/
         /*$(".btnDelete").data({
             "id": id
         }).data();*/
         console.log(id);
-        $('.btnDelete').attr("data-id", id);
+
         console.log("data-id", id);
         $('main').append(
             '<p>' + data[i].amusementParkName + '</p>',
@@ -98,15 +97,13 @@ function displayRideUpdates(data) {
             '<p>' + data[i].text + '</p>',
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
-            /*data attribute with id from database*/
             '<button class="btnDelete" data-id="">' +
-            id + '</button>',
+            $('.btnDelete').attr("data-id", id); + '</button>',
             '<br />'
         );
 
     }
 
-    /*alert($('.btnDelete').data("id"));*/
 
     $(".btnEdit").click(function (event) {
         event.preventDefault();
