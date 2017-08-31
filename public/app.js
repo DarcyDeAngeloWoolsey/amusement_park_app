@@ -99,20 +99,20 @@ function displayRideUpdates(data) {
             '<br />'
         );
 
-
-    }
-    $('.btnDelete').click(function () {
-    alert($(this).data("id"));
-    /* $(".deleteBtnDiv").append(
+        $('.btnDelete').click(function () {
+            alert($(this).data("id"));
+            /* $(".deleteBtnDiv").append(
             '<button class="button buttonDeleteYes type="button">' + "Yes" + '</button>',
             '<button class="button buttonDeleteNo" type="button">' + "No" + '</button>'
         )*/
-    /*$(".buttonDeleteYes").data("id", id);*/
-    $(".modalDelete").show();
-    /*$('.buttonDeleteYes').click(function () {
+            /*$(".buttonDeleteYes").data("id", id);*/
+            $(".modalDelete").show();
+            /*$('.buttonDeleteYes').click(function () {
             alert($('.buttonDeleteYes').data("id"));
         });*/
-});
+        });
+    }
+
     /*alert($('.btnDelete').data("id"));*/
 
     $(".btnEdit").click(function (event) {
