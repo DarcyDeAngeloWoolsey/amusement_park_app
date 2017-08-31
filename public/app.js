@@ -85,7 +85,7 @@ function displayRideUpdates(data) {
             "id": id
         }).data();*/
         console.log(id);
-
+        /*$('.btnDelete').attr("data-id", id);*/
         console.log("data-id", id);
         $('main').append(
             '<p>' + data[i].amusementParkName + '</p>',
@@ -98,7 +98,7 @@ function displayRideUpdates(data) {
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete" data-id="">' +
-            $('.btnDelete').attr("data-id", id) + '</button>',
+            id + '</button>',
             '<br />'
         );
 
