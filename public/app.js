@@ -93,33 +93,36 @@ function displayRideUpdates(data) {
             '<button class="btnEdit">' + "Edit" + '</button>',
             /*data attribute with id from database*/
             '<button class="btnDelete" data-id="id">' +
-            "Delete" + '</button>',
+            data[i].id + '</button>',
             '<br />'
         );
 
-        $('.btnDelete').data("id", id);
-        $('.btnDelete').click(function () {
-            alert($('.btnDelete').data("id"));
-            /* $(".deleteBtnDiv").append(
+        /*$('.btnDelete').data("id", id);*/
+
+
+    }
+    $('.btnDelete').click(function () {
+        alert($('.btnDelete').data("id"));
+        /* $(".deleteBtnDiv").append(
                 '<button class="button buttonDeleteYes type="button">' + "Yes" + '</button>',
                 '<button class="button buttonDeleteNo" type="button">' + "No" + '</button>'
             )*/
-            /*$(".buttonDeleteYes").data("id", id);*/
-            $(".modalDelete").show();
-            /*$('.buttonDeleteYes').click(function () {
+        /*$(".buttonDeleteYes").data("id", id);*/
+        $(".modalDelete").show();
+        /*$('.buttonDeleteYes').click(function () {
                 alert($('.buttonDeleteYes').data("id"));
             });*/
-        });
-        /*alert($('.btnDelete').data("id"));*/
+    });
+    /*alert($('.btnDelete').data("id"));*/
 
-        $(".btnEdit").click(function (event) {
-            event.preventDefault();
-            $(".modalEdit").show();
-        });
+    $(".btnEdit").click(function (event) {
+        event.preventDefault();
+        $(".modalEdit").show();
+    });
 
-        $(".btnDelete").click(function (event) {
-            event.preventDefault();
-            /*$(this).siblings(function (data) {
+    $(".btnDelete").click(function (event) {
+        event.preventDefault();
+        /*$(this).siblings(function (data) {
 
                 $.get('/rides', {
                     amusementParkName: $('[name=list]').val()
@@ -128,11 +131,8 @@ function displayRideUpdates(data) {
                 });
                 });*/
 
-            $(".modalDelete").show();
-        });
-
-    }
-
+        $(".modalDelete").show();
+    });
     //$(".btnDelete").on('click', function (event) {
     //    event.preventDefault();
     //    $(".modalDelete").show();
