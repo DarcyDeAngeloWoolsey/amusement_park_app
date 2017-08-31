@@ -92,7 +92,7 @@ function displayRideUpdates(data) {
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
             /*data attribute with id from database*/
-            '<button class="btnDelete" data-id="id">' +
+            '<button class="btnDelete" data-id=id>' +
             data[i].id + '</button>',
             '<br />'
         );
@@ -101,6 +101,7 @@ function displayRideUpdates(data) {
 
 
     }
+    $('.btnDelete').data("id", id);
     $('.btnDelete').click(function () {
         alert($('.btnDelete').data("id"));
         /* $(".deleteBtnDiv").append(
