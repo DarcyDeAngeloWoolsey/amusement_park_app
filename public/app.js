@@ -137,125 +137,125 @@ function displayRideUpdates(data) {
     //    event.preventDefault();
     //    $(".modalDelete").show();
     //});
+}
 
+/*Short version:
+function displayRideUpdates(data) {
+    data.rideStatus.forEach(function (ride) {
+        Object.keys(ride).forEach(function (key) {
+            console.log(ride[key])
+            if (key !== 'id') {
+                $('body').append('<p>' + ride[key] + '</p>' + ' ');
+            }
+        })
 
-    /*Short version:
-    function displayRideUpdates(data) {
-        data.rideStatus.forEach(function (ride) {
-            Object.keys(ride).forEach(function (key) {
-                console.log(ride[key])
-                if (key !== 'id') {
-                    $('body').append('<p>' + ride[key] + '</p>' + ' ');
-                }
-            })
+    });
+}*/
 
-        });
-    }*/
+// this function can stay the same even when we
+// are connecting to real API
+//create a function whose purpose is to get and display the updates by passing the above functions as the argument
+function getAndDisplayRideUpdates() {
+    getRecentRideUpdates(displayRideUpdates);
 
-    // this function can stay the same even when we
-    // are connecting to real API
-    //create a function whose purpose is to get and display the updates by passing the above functions as the argument
-    function getAndDisplayRideUpdates() {
-        getRecentRideUpdates(displayRideUpdates);
+}
 
-    }
+//create a JQuery function whose purpose is to run the above function
 
-    //create a JQuery function whose purpose is to run the above function
+$(function () {
+    getAndDisplayRideUpdates();
+})
 
+$(document).ready(function () {
+    $(".modalAdd").hide();
+    $(".modalDelete").hide();
+    $(".modalEdit").hide();
+    $(".list").hide();
+
+    //add ability to get list from database instead
     $(function () {
-        getAndDisplayRideUpdates();
-    })
 
-    $(document).ready(function () {
-        $(".modalAdd").hide();
-        $(".modalDelete").hide();
-        $(".modalEdit").hide();
-        $(".list").hide();
-
-        //add ability to get list from database instead
-        $(function () {
-
-            $(".formList").submit(function () {
-                event.preventDefault();
-                $.get('/rides', {
-                    amusementParkName: $('[name=list]').val()
-                }, function (data) {
-                    console.log("getRecent working");
-                    displayRideUpdates(data);
-
-                });
-                $(".list").empty();
-                $(".list").show();
-                $(".formList")[0].reset();
-            });
-        });
-
-        $(".buttonNew").click(function () {
+        $(".formList").submit(function () {
             event.preventDefault();
-            $(".modalAdd").show();
-
-        });
-
-        $(".formAdd").submit(function () {
-            event.preventDefault();
-            console.log("running formadd in app");
-            $.post('/rides', {
-                amusementParkName: $('[name=amusementParkName]').val(),
-                rideName: $('[name=rideName]').val(),
-                minutesWait: $('[name=minutesWait]').val(),
-                typeOfRide: $('[name=typeOfRide]').val(),
-                thrill: $('[name=thrill]').val(),
-                rating: $('[name=rating]').val(),
-                text: $('[name=text]').val()
+            $.get('/rides', {
+                amusementParkName: $('[name=list]').val()
             }, function (data) {
-                console.log("postRides working");
+                console.log("getRecent working");
                 displayRideUpdates(data);
-                $(".modalAdd").hide();
+
             });
             $(".list").empty();
             $(".list").show();
-            $(".formAdd")[0].reset();
-
+            $(".formList")[0].reset();
         });
+    });
 
-        $(".buttonCloseModal").click(function () {
-            event.preventDefault();
-
-            $(".modalAdd").hide();
-            $(".list").show();
-        });
-
-        /*$(".buttonDeleteYes").click(function () {
-            event.preventDefault();
-            console.log("running buttonDeleteYes in app");
-
-            //need to figure out how to get the id of this data that we want to delete.
-
-            $.delete('/rides/:id', function (data) {
-                console.log("postRides working");
-                displayRideUpdates(data);
-                $(".modalDelete").hide();
-            });
-            (".list").empty();
-            $(".list").show();
-        });*/
-
-        $(".buttonDeleteNo").click(function () {
-            event.preventDefault();
-            $(".modalDelete").hide();
-            $(".list").show();
-        });
-
-        $(".formEdit").submit(function () {
-            event.preventDefault();
-            $(".modalEdit").hide();
-            $(".list").show();
-        });
-
-        $(".buttonEditCancel").click(function () {
-            event.preventDefault();
-            $(".modalEdit").hide();
-            $(".list").show();
-        });
+    $(".buttonNew").click(function () {
+        event.preventDefault();
+        $(".modalAdd").show();
 
     });
+
+    $(".formAdd").submit(function () {
+        event.preventDefault();
+        console.log("running formadd in app");
+        $.post('/rides', {
+            amusementParkName: $('[name=amusementParkName]').val(),
+            rideName: $('[name=rideName]').val(),
+            minutesWait: $('[name=minutesWait]').val(),
+            typeOfRide: $('[name=typeOfRide]').val(),
+            thrill: $('[name=thrill]').val(),
+            rating: $('[name=rating]').val(),
+            text: $('[name=text]').val()
+        }, function (data) {
+            console.log("postRides working");
+            displayRideUpdates(data);
+            $(".modalAdd").hide();
+        });
+        $(".list").empty();
+        $(".list").show();
+        $(".formAdd")[0].reset();
+
+    });
+
+    $(".buttonCloseModal").click(function () {
+        event.preventDefault();
+
+        $(".modalAdd").hide();
+        $(".list").show();
+    });
+
+    /*$(".buttonDeleteYes").click(function () {
+        event.preventDefault();
+        console.log("running buttonDeleteYes in app");
+
+        //need to figure out how to get the id of this data that we want to delete.
+
+        $.delete('/rides/:id', function (data) {
+            console.log("postRides working");
+            displayRideUpdates(data);
+            $(".modalDelete").hide();
+        });
+        (".list").empty();
+        $(".list").show();
+    });*/
+
+    $(".buttonDeleteNo").click(function () {
+        event.preventDefault();
+        $(".modalDelete").hide();
+        $(".list").show();
+    });
+
+    $(".formEdit").submit(function () {
+        event.preventDefault();
+        $(".modalEdit").hide();
+        $(".list").show();
+    });
+
+    $(".buttonEditCancel").click(function () {
+        event.preventDefault();
+        $(".modalEdit").hide();
+        $(".list").show();
+    });
+
+});
