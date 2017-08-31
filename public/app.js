@@ -82,9 +82,9 @@ function displayRideUpdates(data) {
         console.log("index working");
         let id = data[i].id;
         /*$('.btnDelete').data("id", id);*/
-        $(".btnDelete").data({
+        /*$(".btnDelete").data({
             "id": id
-        }).data();
+        }).data();*/
         console.log(id);
         $('.btnDelete').attr("data-id", id);
 
@@ -99,7 +99,7 @@ function displayRideUpdates(data) {
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
             /*data attribute with id from database*/
-            '<button class="btnDelete" data-id="id">' +
+            '<button class="btnDelete" data-id="">' +
             id + '</button>',
             '<br />'
         );
