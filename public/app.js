@@ -95,7 +95,7 @@ function displayRideUpdates(data) {
             '<button class="btnEdit">' + "Edit" + '</button>',
             /*data attribute with id from database*/
             '<button class="btnDelete" data-id=id>' +
-            data[i].id + '</button>',
+            id + '</button>',
             '<br />'
         );
         $('.btnDelete').click(function () {
