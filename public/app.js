@@ -86,7 +86,7 @@ function displayRideUpdates(data) {
         }).data();*/
         console.log(id);
         /*$('.btnDelete').attr("data-id", id);*/
-        $.each($('main'), function (id, item) {
+        $.each($('main'), function (id, ".btnDelete") {
             $(".btnDelete").attr('data-id', id);
         });
         console.log("data-id", id);
