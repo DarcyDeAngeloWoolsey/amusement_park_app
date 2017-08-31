@@ -85,7 +85,7 @@ function displayRideUpdates(data) {
         $(".btnDelete").data({
             "id": id
         }).data();
-
+        $(".btnDelete").addClass(id);
         $('main').append(
             '<p>' + data[i].amusementParkName + '</p>',
             '<p>' + data[i].rideName + '</p>',
