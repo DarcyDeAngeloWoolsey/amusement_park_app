@@ -98,7 +98,7 @@ function displayRideUpdates(data) {
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
             '<button class="btnDelete" data-id="">' +
-            $('.btnDelete').attr("data-id", id); + '</button>',
+            $('.btnDelete').attr("data-id", id) + '</button>',
             '<br />'
         );
 
