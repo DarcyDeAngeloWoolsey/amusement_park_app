@@ -85,10 +85,7 @@ function displayRideUpdates(data) {
             "id": id
         }).data();*/
         console.log(id);
-        $('.btnDelete').attr("data-id", id);
-        /*$.each($('main'), function (id, ".btnDelete") {
-            $(".btnDelete").attr('data-id', id);
-        });*/
+        //        $('.btnDelete').attr("data-id", id);
         console.log("data-id", id);
         $('main').append(
             '<p>' + data[i].amusementParkName + '</p>',
@@ -100,8 +97,8 @@ function displayRideUpdates(data) {
             '<p>' + data[i].text + '</p>',
             '<br />',
             '<button class="btnEdit">' + "Edit" + '</button>',
-            '<button class="btnDelete" data-id="">' +
-            id + '</button>',
+            /*string concat in data-id*/
+            '<button class="btnDelete" data-id="' + id + '">' + id + '</button>',
             '<br />'
         );
 
@@ -115,6 +112,7 @@ function displayRideUpdates(data) {
 
     $(".btnDelete").click(function (event) {
         event.preventDefault();
+        // $(this).attr('id')
         /*$(this).siblings(function (data) {
 
                 $.get('/rides', {
@@ -124,7 +122,23 @@ function displayRideUpdates(data) {
                 });
                 });*/
 
+
+        console.log($(this).attr('data-id'))
         $(".modalDelete").show();
+        $(".buttonDeleteYes").attr('data-id', $(this).attr('data-id'))
+
+        /*$.ajax({
+            url: '/rides/' + $(this).attr('data-id'),
+            method: 'DELETE'
+        }).then(function () {
+            getAndDisplayRideUpdates()
+        });*/
+
+        $.delete('/rides/' + $(this).attr('data-id')).then(function () {
+            getAndDisplayRideUpdates()
+        });
+
+
     });
     //$(".btnDelete").on('click', function (event) {
     //    event.preventDefault();
@@ -149,38 +163,40 @@ function displayRideUpdates(data) {
 // are connecting to real API
 //create a function whose purpose is to get and display the updates by passing the above functions as the argument
 function getAndDisplayRideUpdates() {
-    getRecentRideUpdates(displayRideUpdates);
-
+    $.get('/rides', {
+        amusementParkName: $('[name=list]').val()
+    }, function (data) {
+        $(".list").empty();
+        $(".list").show();
+        console.log("getRecent working");
+        displayRideUpdates(data);
+    });
 }
 
 //create a JQuery function whose purpose is to run the above function
 
 $(function () {
-    getAndDisplayRideUpdates();
-})
 
-$(document).ready(function () {
     $(".modalAdd").hide();
     $(".modalDelete").hide();
     $(".modalEdit").hide();
     $(".list").hide();
 
+    getAndDisplayRideUpdates();
+
     //add ability to get list from database instead
-    $(function () {
+    $(".formList").submit(function () {
+        event.preventDefault();
+        $.get('/rides', {
+            amusementParkName: $('[name=list]').val()
+        }, function (data) {
+            console.log("getRecent working");
+            displayRideUpdates(data);
 
-        $(".formList").submit(function () {
-            event.preventDefault();
-            $.get('/rides', {
-                amusementParkName: $('[name=list]').val()
-            }, function (data) {
-                console.log("getRecent working");
-                displayRideUpdates(data);
-
-            });
-            $(".list").empty();
-            $(".list").show();
-            $(".formList")[0].reset();
         });
+        $(".list").empty();
+        $(".list").show();
+        $(".formList")[0].reset();
     });
 
     $(".buttonNew").click(function () {
@@ -202,8 +218,9 @@ $(document).ready(function () {
             text: $('[name=text]').val()
         }, function (data) {
             console.log("postRides working");
-            displayRideUpdates(data);
+            //            displayRideUpdates(data);
             $(".modalAdd").hide();
+            getAndDisplayRideUpdates();
         });
         $(".list").empty();
         $(".list").show();
