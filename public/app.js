@@ -80,7 +80,7 @@ function displayRideUpdates(data) {
 
     for (i = 0; i < data.length; i++) {
         console.log("index working");
-        var id = data[i].id;
+        const id = data[i].id;
         /*$('.btnDelete').data("id", id);*/
         /*$(".btnDelete").data({
             "id": id
