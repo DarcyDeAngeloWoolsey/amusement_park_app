@@ -44,6 +44,7 @@ function getRecentRideUpdates(data) {
     }, 100);
 }
 
+
 // this function stays the same when we connect
 // to real API later
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
@@ -96,9 +97,9 @@ function displayRideUpdates(data) {
             '<p>' + data[i].rating + '</p>',
             '<p>' + data[i].text + '</p>',
             '<br />',
-            '<button class="btnEdit">' + "Edit" + '</button>',
+            '<button class="btnEdit" data-id="' + id + '">' + "Edit" + '</button>',
             /*string concat in data-id*/
-            '<button class="btnDelete" data-id="' + id + '">' + id + '</button>',
+            '<button class="btnDelete" data-id="' + id + '">' + "Delete" + '</button>',
             '<br />'
         );
 
@@ -108,38 +109,44 @@ function displayRideUpdates(data) {
     $(".btnEdit").click(function (event) {
         event.preventDefault();
         $(".modalEdit").show();
+        $(".buttonEditApply").attr('data-id', $(this).attr('data-id'));
+        $(".formEdit").submit(function () {
+            event.preventDefault();
+            console.log("start edit");
+            $.ajax({
+                url: '/rides/' + $(".buttonEditApply").attr('data-id'),
+                method: 'PUT',
+                data: {
+                    amusementParkName: $('[name=amusementParkName]').val(),
+                    rideName: $('[name=rideName]').val(),
+                    minutesWait: $('[name=minutesWait]').val(),
+                    typeOfRide: $('[name=typeOfRide]').val(),
+                    thrill: $('[name=thrill]').val(),
+                    rating: $('[name=rating]').val(),
+                    text: $('[name=text]').val()
+                }
+            }).then(function () {
+                console.log("edit working");
+                getAndDisplayRideUpdates()
+            });
+        });
     });
 
     $(".btnDelete").click(function (event) {
         event.preventDefault();
-        // $(this).attr('id')
-        /*$(this).siblings(function (data) {
-
-                $.get('/rides', {
-                    amusementParkName: $('[name=list]').val()
-                }, function (data) {
-                    console.log("running get rides in delete button");
-                });
-                });*/
-
-
-        console.log($(this).attr('data-id'))
         $(".modalDelete").show();
-        $(".buttonDeleteYes").attr('data-id', $(this).attr('data-id'))
-
-        /*$.ajax({
-            url: '/rides/' + $(this).attr('data-id'),
-            method: 'DELETE'
-        }).then(function () {
-            getAndDisplayRideUpdates()
-        });*/
-
-        $.delete('/rides/' + $(this).attr('data-id')).then(function () {
-            getAndDisplayRideUpdates()
+        $(".buttonDeleteYes").attr('data-id', $(this).attr('data-id'));
+        $(".buttonDeleteYes").click(function () {
+            event.preventDefault();
+            $.ajax({
+                url: '/rides/' + $(this).attr('data-id'),
+                method: 'DELETE'
+            }).then(function () {
+                getAndDisplayRideUpdates()
+            });
         });
-
-
     });
+
     //$(".btnDelete").on('click', function (event) {
     //    event.preventDefault();
     //    $(".modalDelete").show();
@@ -235,20 +242,11 @@ $(function () {
         $(".list").show();
     });
 
-    /*$(".buttonDeleteYes").click(function () {
+    $(".buttonDeleteYes").click(function () {
         event.preventDefault();
-        console.log("running buttonDeleteYes in app");
-
-        //need to figure out how to get the id of this data that we want to delete.
-
-        $.delete('/rides/:id', function (data) {
-            console.log("postRides working");
-            displayRideUpdates(data);
-            $(".modalDelete").hide();
-        });
-        (".list").empty();
+        $(".modalDelete").hide();
         $(".list").show();
-    });*/
+    });
 
     $(".buttonDeleteNo").click(function () {
         event.preventDefault();
@@ -256,11 +254,7 @@ $(function () {
         $(".list").show();
     });
 
-    $(".formEdit").submit(function () {
-        event.preventDefault();
-        $(".modalEdit").hide();
-        $(".list").show();
-    });
+
 
     $(".buttonEditCancel").click(function () {
         event.preventDefault();

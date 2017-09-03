@@ -103,6 +103,35 @@ app.post('/rides', (req, res) => {
         });
 });
 
+app.put('/rides/:id', (req, res) => {
+    console.log("app.put started");
+    if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
+        res.status(400).json({
+            error: 'Request path id and request body id values must match'
+        });
+    }
+
+    const updated = {};
+    const updateableFields = ['amusementParkName', 'rideName', 'minutesWait', 'typeOfRide', 'thrill', 'rating', 'text'];
+    updateableFields.forEach(field => {
+        if (field in req.body) {
+            updated[field] = req.body[field];
+        }
+    });
+
+    RideStatus
+        .findByIdAndUpdate(req.params.id, {
+            $set: updated
+        }, {
+            new: true
+        })
+        .exec()
+        .then(ride => res.status(204).json(ride.apiRepr()))
+        .catch(err => res.status(500).json({
+            message: 'Something went wrong'
+        }));
+});
+
 app.delete('/rides/:id', (req, res) => {
     RideStatus
         .findByIdAndRemove(req.params.id)
