@@ -4,7 +4,7 @@ body {
     padding: 10px;
     max-width: 600px;
     margin: auto;
-    background-image: url("../images/background_img_1.jpg");
+    background-image: url("images/background_img_1.jpg");
     background-color: #eeeeee;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,7 +13,7 @@ body {
 
 header,
 .list {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .sectionedList {
@@ -48,6 +48,7 @@ h5 {
 
 h6 {
     font-size: 1.4em;
+    font-weight: 600;
 }
 
 p {
@@ -76,7 +77,7 @@ form,
 
 main.list {
     height: 400px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .modalFade {
