@@ -116,15 +116,15 @@ function displayRideUpdates(data) {
             $.ajax({
                 url: '/rides/' + $(".buttonEditApply").attr('data-id'),
                 method: 'PUT',
-                data: {
-                    amusementParkName: $('[name=amusementParkName]').val(),
-                    rideName: $('[name=rideName]').val(),
-                    minutesWait: $('[name=minutesWait]').val(),
-                    typeOfRide: $('[name=typeOfRide]').val(),
-                    thrill: $('[name=thrill]').val(),
-                    rating: $('[name=rating]').val(),
-                    text: $('[name=text]').val()
-                }
+                data: ({
+                    amusementParkName: $('[name=amusementParkNameEdit]').val(),
+                    rideName: $('[name=rideNameEdit]').val(),
+                    minutesWait: $('[name=minutesWaitEdit]').val(),
+                    typeOfRide: $('[name=typeOfRideEdit]').val(),
+                    thrill: $('[name=thrillEdit]').val(),
+                    rating: $('[name=ratingEdit]').val(),
+                    text: $('[name=textEdit]').val()
+                })
             }).then(function () {
                 console.log("edit working");
                 getAndDisplayRideUpdates()
