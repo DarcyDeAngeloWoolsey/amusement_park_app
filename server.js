@@ -106,14 +106,11 @@ app.post('/rides', (req, res) => {
 app.put('/rides/:id', (req, res) => {
     console.log("app.put started");
     if (!(req.params.id)) {
-
         res.status(400).json({
             error: 'Request path id and request body id values must match'
         });
         console.log("req params");
     }
-
-    return res.send();
 
     const updated = {};
     const updateableFields = ['amusementParkName', 'rideName', 'minutesWait', 'typeOfRide', 'thrill', 'rating', 'text'];
@@ -122,7 +119,6 @@ app.put('/rides/:id', (req, res) => {
             updated[field] = req.body[field];
         }
     });
-
     RideStatus
         .findByIdAndUpdate(req.params.id, {
             $set: updated
@@ -130,9 +126,7 @@ app.put('/rides/:id', (req, res) => {
             new: true
         })
         .exec()
-        .then(rides => {
-            res.json(rides.map(ride => ride.apiRepr()))
-        })
+        .then(ride => res.status(200).json(ride.apiRepr()))
         .catch(err => {
             console.error(err);
             res.status(500).json({

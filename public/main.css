@@ -4,6 +4,26 @@ body {
     padding: 10px;
     max-width: 600px;
     margin: auto;
+    background-image: url("../images/background_img_1.jpg");
+    background-color: #eeeeee;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+}
+
+header,
+.list {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.sectionedList {
+    border-top: 2px solid #cccccc;
+}
+
+button {
+    background-color: #eeeeee;
+    border-radius: 10px;
+    margin: 5px;
 }
 
 h1 {
@@ -23,15 +43,19 @@ h4 {
 }
 
 h5 {
-    1.6em;
+    font-size: 1.6em;
 }
 
 h6 {
-    1.4em;
+    font-size: 1.4em;
 }
 
 p {
-    1.6em;
+    font-size: 1.6em;
+}
+
+.list p {
+    padding: 3px;
 }
 
 input {
@@ -48,6 +72,11 @@ form,
     -webkit-transform: translate(0%, 50%);
     /* Safari */
     transform: translate(0%, 50%);
+}
+
+main.list {
+    height: 400px;
+    overflow: scroll;
 }
 
 .modalFade {

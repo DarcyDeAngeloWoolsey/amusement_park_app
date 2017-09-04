@@ -89,18 +89,27 @@ function displayRideUpdates(data) {
         //        $('.btnDelete').attr("data-id", id);
         console.log("data-id", id);
         $('main').append(
+            '<p class="sectionedList">' +
+            '</p>',
+            '<lable>' + "Amusement Park Name" + '</lable>',
             '<p>' + data[i].amusementParkName + '</p>',
+            '<label>' + "Ride Name" + '</label>',
             '<p>' + data[i].rideName + '</p>',
+            '<label>' + "Wait Time in Minutes" + '</label>',
             '<p>' + data[i].minutesWait + '</p>',
+            '<label>' + "Type of Ride" + '</label>',
             '<p>' + data[i].typeOfRide + '</p>',
+            '<label>' + "Thrill Level" + '</label>',
             '<p>' + data[i].thrill + '</p>',
+            '<label>' + "Give it a Rating" + '</label>',
             '<p>' + data[i].rating + '</p>',
+            '<lable>' + "Say something about this ride" + '</lable>',
             '<p>' + data[i].text + '</p>',
             '<br />',
             '<button class="btnEdit" data-id="' + id + '">' + "Edit" + '</button>',
             /*string concat in data-id*/
             '<button class="btnDelete" data-id="' + id + '">' + "Delete" + '</button>',
-            '<br />'
+            '<br/>'
         );
 
     }
@@ -110,10 +119,12 @@ function displayRideUpdates(data) {
         event.preventDefault();
         $(".modalEdit").show();
         $(".formEdit").attr('data-id', $(this).attr('data-id'));
-
+        let id = $(this).attr('data-id');
+        /*let amusement = data[i].amusementParkName;
+        console.log(amusement);*/
         $('.formEdit').append(
             '<lable>' + "Amusement Park Name" + '</lable>',
-            '<input class="displayBlock marginAuto" type="text" name="amusementParkNameEdit" placeholder="Disney Hollywood Studios Florida">',
+            '<input class="displayBlock marginAuto" type="text" name="amusementParkNameEdit" placeholder="Disney Hollywood Studios Florida" value="">',
             '<label>' + "Ride Name" + '</label>',
             '<input class="displayBlock marginAuto" type="text" name="rideNameEdit" placeholder="Tower of Terror">',
             '<label>' + "Wait Time in Minutes" + '</label>',
@@ -160,9 +171,12 @@ function displayRideUpdates(data) {
                 console.log("edit working");
 
                 getAndDisplayRideUpdates();
-                $(".modalEdit").hide();
+
             });
+            $(".modalEdit").hide();
+            $(".formEdit").empty();
         });
+        $(".formEdit")[0].reset();
     });
 
     $(".btnDelete").click(function (event) {
