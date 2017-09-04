@@ -112,7 +112,7 @@ app.put('/rides/:id', (req, res) => {
     }
 
     const updated = {};
-    const updateableFields = ['amusementParkName', 'rideName', 'minutesWait', 'typeOfRide', 'thrill', 'rating', 'text'];
+    const updateableFields = ['amusementParkNameEdit', 'rideNameEdit', 'minutesWaitEdit', 'typeOfRideEdit', 'thrillEdit', 'ratingEdit', 'textEdit'];
     updateableFields.forEach(field => {
         if (field in req.body) {
             updated[field] = req.body[field];

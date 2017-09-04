@@ -109,6 +109,27 @@ function displayRideUpdates(data) {
     $(".btnEdit").click(function (event) {
         event.preventDefault();
         $(".modalEdit").show();
+        $('.formEdit').append(
+            '<lable>' + "Amusement Park Name" + '</lable>',
+            '<input class="displayBlock marginAuto" type="text" name="amusementParkNameEdit" placeholder="Disney Hollywood Studios Florida">',
+            '<label>' + "Ride Name" + '</label>',
+            '<input class="displayBlock marginAuto" type="text" name="rideNameEdit" placeholder="Tower of Terror">',
+            '<label>' + "Wait Time in Minutes" + '</label>',
+            '<input class="displayBlock marginAuto" type="text" name="minutesWaitEdit" placeholder="120">',
+            '<label>' + "Type of Ride" + '</label>',
+            '<input class="displayBlock marginAuto" type="text" name="typeOfRideEdit" placeholder="Rollercoaster">',
+            '<label>' + "Thrill Level" + '</label>',
+            '<input class="displayBlock marginAuto" type="text" name="thrillEdit" placeholder="Low, Medium, High">',
+            '<label>' + "Give it a Rating" + '</label>',
+            '<input class="displayBlock marginAuto" type="text" name="ratingEdit" placeholder="Enter 1-5">',
+            '<lable>' + "Say something about this ride" + '</lable>',
+            '<textarea class="displayBlock marginAuto" name="textEdit" placeholder="Describe in 50 characters">' + "" +
+            '</textarea>',
+            '<br />',
+            '<button class="displayBlock floatRight button buttonEditApply" type="submit">' + "Apply" + '</button>',
+            '<br />'
+        );
+
         $(".buttonEditApply").attr('data-id', $(this).attr('data-id'));
         $(".formEdit").submit(function () {
             event.preventDefault();
@@ -116,6 +137,7 @@ function displayRideUpdates(data) {
             $.ajax({
                 url: '/rides/' + $(".buttonEditApply").attr('data-id'),
                 method: 'PUT',
+
                 data: ({
                     amusementParkName: $('[name=amusementParkNameEdit]').val(),
                     rideName: $('[name=rideNameEdit]').val(),
@@ -125,6 +147,8 @@ function displayRideUpdates(data) {
                     rating: $('[name=ratingEdit]').val(),
                     text: $('[name=textEdit]').val()
                 })
+
+
             }).then(function () {
                 console.log("edit working");
                 getAndDisplayRideUpdates()
