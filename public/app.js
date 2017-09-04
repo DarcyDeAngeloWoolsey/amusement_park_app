@@ -109,6 +109,8 @@ function displayRideUpdates(data) {
     $(".btnEdit").click(function (event) {
         event.preventDefault();
         $(".modalEdit").show();
+        $(".formEdit").attr('data-id', $(this).attr('data-id'));
+
         $('.formEdit').append(
             '<lable>' + "Amusement Park Name" + '</lable>',
             '<input class="displayBlock marginAuto" type="text" name="amusementParkNameEdit" placeholder="Disney Hollywood Studios Florida">',
@@ -129,15 +131,16 @@ function displayRideUpdates(data) {
             '<button class="displayBlock floatRight button buttonEditApply" type="submit">' + "Apply" + '</button>',
             '<br />'
         );
+        $(".formEdit").children("input").attr('data-id', $(this).attr('data-id'));
 
         $(".buttonEditApply").attr('data-id', $(this).attr('data-id'));
-        $(".formEdit").submit(function () {
+        $(".formEdit").submit(function (event) {
             event.preventDefault();
             console.log("start edit");
             $.ajax({
                 url: '/rides/' + $(".buttonEditApply").attr('data-id'),
-                method: 'PUT',
 
+                method: 'PUT',
                 data: ({
                     amusementParkName: $('[name=amusementParkNameEdit]').val(),
                     rideName: $('[name=rideNameEdit]').val(),
@@ -146,12 +149,18 @@ function displayRideUpdates(data) {
                     thrill: $('[name=thrillEdit]').val(),
                     rating: $('[name=ratingEdit]').val(),
                     text: $('[name=textEdit]').val()
-                })
+                }),
+                success: function (data) {
+                    alert('Load was performed.');
+                },
+
 
 
             }).then(function () {
                 console.log("edit working");
-                getAndDisplayRideUpdates()
+
+                getAndDisplayRideUpdates();
+                $(".modalEdit").hide();
             });
         });
     });
