@@ -113,9 +113,11 @@ function displayRideUpdates(data) {
             '<h6>' + "Say something about this ride:" + '</h6>',
             '<p>' + data[i].text + '</p>',
             '<br />',
-            '<button class="btnEdit" data-id="' + id + '">' + "Edit" + '</button>',
-            /*string concat in data-id*/
-            '<button class="btnDelete" data-id="' + id + '">' + "Delete" + '</button>',
+            '<div class="clearfix">' +
+            '<button class="btnEdit floatRight" data-id="' + id + '">' + "Edit" + '</button>' +
+
+            '<button class="btnDelete floatRight" data-id="' + id + '">' + "Delete" + '</button>' +
+            '</div>',
             '<br/>'
         );
 
@@ -133,7 +135,7 @@ function displayRideUpdates(data) {
         console.log('ride', ride)
 
         $('.formEdit').append(
-            '<lable>' + "Amusement Park Name" + '</lable>',
+            '<label>' + "Amusement Park Name" + '</label>',
             '<input class="displayBlock marginAuto" type="text" name="amusementParkNameEdit" placeholder="Disney Hollywood Studios Florida" value="' + ride.amusementParkName + '">',
             '<label>' + "Ride Name" + '</label>',
             '<input class="displayBlock marginAuto" type="text" name="rideNameEdit" placeholder="Tower of Terror" value="' + ride.rideName + '">',
@@ -145,7 +147,7 @@ function displayRideUpdates(data) {
             '<input class="displayBlock marginAuto" type="text" name="thrillEdit" placeholder="Low, Medium, High" value="' + ride.thrill + '">',
             '<label>' + "Give it a Rating" + '</label>',
             '<input class="displayBlock marginAuto" type="text" name="ratingEdit" placeholder="Enter 1-5" value="' + ride.rating + '">',
-            '<lable>' + "Say something about this ride" + '</lable>',
+            '<label>' + "Say something about this ride" + '</label>',
             '<textarea class="displayBlock marginAuto" name="textEdit" placeholder="Describe in 50 characters" value="' + ride.text + '">' + "" +
             '</textarea>',
             '<br />',
@@ -198,7 +200,7 @@ function displayRideUpdates(data) {
 //create a function whose purpose is to get and display the updates by passing the above functions as the argument
 function getAndDisplayRideUpdates() {
     $.get('/rides', {
-        amusementParkName: $('[name=list]').val()
+        rideName: $('[name=list]').val()
     }, function (data) {
         $(".list").empty();
         $(".list").show();
@@ -222,7 +224,7 @@ $(function () {
     $(".formList").submit(function () {
         event.preventDefault();
         $.get('/rides', {
-            amusementParkName: $('[name=list]').val()
+            rideName: $('[name=list]').val()
         }, function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
@@ -286,6 +288,7 @@ $(function () {
     $(".buttonEditCancel").click(function () {
         event.preventDefault();
         $(".modalEdit").hide();
+        $(".formEdit").empty();
         $(".list").show();
     });
 
@@ -307,7 +310,7 @@ $(function () {
                 text: $('[name=textEdit]').val()
             }),
             success: function (data) {
-                alert('Load was performed.');
+
                 $(".modalEdit").hide();
                 $(".formEdit").empty();
             },
