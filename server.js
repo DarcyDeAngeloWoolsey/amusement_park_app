@@ -47,7 +47,7 @@ mongoose.Promise = global.Promise;
 
 app.get('/rides', (req, res) => {
     const filters = {};
-    const queryableFields = ['amusementParkName', 'rideName'];
+    const queryableFields = ['amusementParkName'];
     queryableFields.forEach(field => {
         if (req.query[field]) {
             filters[field] = req.query[field];
