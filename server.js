@@ -47,7 +47,7 @@ mongoose.Promise = global.Promise;
 
 app.get('/rides', (req, res) => {
     const filters = {};
-    const queryableFields = ['amusementParkName'];
+    const queryableFields = ['amusementParkName', 'rideName'];
     queryableFields.forEach(field => {
         if (req.query[field]) {
             filters[field] = req.query[field];
@@ -77,9 +77,11 @@ app.post('/rides', (req, res) => {
             console.log("field in req.body");
         }
         if (!(field in req.body)) {
+
             const message = `Missing \`${field}\` in request body`
             console.error(message);
             return res.status(400).send(message);
+
         }
     }
 
@@ -96,10 +98,12 @@ app.post('/rides', (req, res) => {
         .then(
             ride => res.status(201).json(ride.apiRepr()))
         .catch(err => {
+
             console.error(err);
             res.status(500).json({
                 message: 'Internal server error'
             });
+
         });
 });
 
@@ -118,6 +122,7 @@ app.put('/rides/:id', (req, res) => {
         if (field in req.body) {
             updated[field] = req.body[field];
         }
+
     });
     RideStatus
         .findByIdAndUpdate(req.params.id, {
