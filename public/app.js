@@ -45,6 +45,11 @@ function getRecentRideUpdates(data) {
 }
 
 
+const appState = {
+    rides: []
+}
+
+
 // this function stays the same when we connect
 // to real API later
 //create a function that has data passed as its argument. And for each index in the data that is in the Json Object named rideStatus, append that index to the paragraph element.
@@ -78,6 +83,8 @@ function displayRideUpdates(data) {
     //        );
     //    });
 
+
+    appState.rides = data;
 
     for (i = 0; i < data.length; i++) {
         let id = data[i].id;
@@ -122,21 +129,24 @@ function displayRideUpdates(data) {
         let id = $(this).attr('data-id');
         /*let amusement = data[i].amusementParkName;
         console.log(amusement);*/
+        const ride = appState.rides.find(r => r.id === id);
+        console.log('ride', ride)
+
         $('.formEdit').append(
             '<lable>' + "Amusement Park Name" + '</lable>',
-            '<input class="displayBlock marginAuto" type="text" name="amusementParkNameEdit" placeholder="Disney Hollywood Studios Florida" value="">',
+            '<input class="displayBlock marginAuto" type="text" name="amusementParkNameEdit" placeholder="Disney Hollywood Studios Florida" value="' + ride.amusementParkName + '">',
             '<label>' + "Ride Name" + '</label>',
-            '<input class="displayBlock marginAuto" type="text" name="rideNameEdit" placeholder="Tower of Terror">',
+            '<input class="displayBlock marginAuto" type="text" name="rideNameEdit" placeholder="Tower of Terror" value="' + ride.rideName + '">',
             '<label>' + "Wait Time in Minutes" + '</label>',
-            '<input class="displayBlock marginAuto" type="text" name="minutesWaitEdit" placeholder="120">',
+            '<input class="displayBlock marginAuto" type="text" name="minutesWaitEdit" placeholder="120" value="' + ride.minutesWait + '">',
             '<label>' + "Type of Ride" + '</label>',
-            '<input class="displayBlock marginAuto" type="text" name="typeOfRideEdit" placeholder="Rollercoaster">',
+            '<input class="displayBlock marginAuto" type="text" name="typeOfRideEdit" placeholder="Rollercoaster" value="' + ride.typeOfRide + '">',
             '<label>' + "Thrill Level" + '</label>',
-            '<input class="displayBlock marginAuto" type="text" name="thrillEdit" placeholder="Low, Medium, High">',
+            '<input class="displayBlock marginAuto" type="text" name="thrillEdit" placeholder="Low, Medium, High" value="' + ride.thrill + '">',
             '<label>' + "Give it a Rating" + '</label>',
-            '<input class="displayBlock marginAuto" type="text" name="ratingEdit" placeholder="Enter 1-5">',
+            '<input class="displayBlock marginAuto" type="text" name="ratingEdit" placeholder="Enter 1-5" value="' + ride.rating + '">',
             '<lable>' + "Say something about this ride" + '</lable>',
-            '<textarea class="displayBlock marginAuto" name="textEdit" placeholder="Describe in 50 characters">' + "" +
+            '<textarea class="displayBlock marginAuto" name="textEdit" placeholder="Describe in 50 characters" value="' + ride.text + '">' + "" +
             '</textarea>',
             '<br />',
             '<button class="displayBlock floatRight button buttonEditApply" type="submit">' + "Apply" + '</button>',
@@ -145,37 +155,7 @@ function displayRideUpdates(data) {
         $(".formEdit").children("input").attr('data-id', $(this).attr('data-id'));
 
         $(".buttonEditApply").attr('data-id', $(this).attr('data-id'));
-        $(".formEdit").submit(function (event) {
-            event.preventDefault();
-            console.log("start edit");
-            $.ajax({
-                url: '/rides/' + $(".buttonEditApply").attr('data-id'),
 
-                method: 'PUT',
-                data: ({
-                    amusementParkName: $('[name=amusementParkNameEdit]').val(),
-                    rideName: $('[name=rideNameEdit]').val(),
-                    minutesWait: $('[name=minutesWaitEdit]').val(),
-                    typeOfRide: $('[name=typeOfRideEdit]').val(),
-                    thrill: $('[name=thrillEdit]').val(),
-                    rating: $('[name=ratingEdit]').val(),
-                    text: $('[name=textEdit]').val()
-                }),
-                success: function (data) {
-                    alert('Load was performed.');
-                },
-
-
-
-            }).then(function () {
-                console.log("edit working");
-
-                getAndDisplayRideUpdates();
-
-            });
-            $(".modalEdit").hide();
-            $(".formEdit").empty();
-        });
         $(".formEdit")[0].reset();
     });
 
@@ -307,6 +287,40 @@ $(function () {
         event.preventDefault();
         $(".modalEdit").hide();
         $(".list").show();
+    });
+
+    $(".formEdit").submit(function (event) {
+        event.preventDefault();
+        console.log("start edit");
+        console.log($(".buttonEditApply"))
+        $.ajax({
+            url: '/rides/' + $(".buttonEditApply").attr('data-id'),
+
+            method: 'PUT',
+            data: ({
+                amusementParkName: $('[name=amusementParkNameEdit]').val(),
+                rideName: $('[name=rideNameEdit]').val(),
+                minutesWait: $('[name=minutesWaitEdit]').val(),
+                typeOfRide: $('[name=typeOfRideEdit]').val(),
+                thrill: $('[name=thrillEdit]').val(),
+                rating: $('[name=ratingEdit]').val(),
+                text: $('[name=textEdit]').val()
+            }),
+            success: function (data) {
+                alert('Load was performed.');
+                $(".modalEdit").hide();
+                $(".formEdit").empty();
+            },
+
+
+
+        }).then(function () {
+            console.log("edit working");
+
+            getAndDisplayRideUpdates();
+
+        });
+
     });
 
 });
