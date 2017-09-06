@@ -74,6 +74,15 @@ p {
     background-color: rgba(140, 148, 187, 0.9);
 }
 
+.modalBody p {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+}
+
 .list {
     color: white;
 }
@@ -95,20 +104,33 @@ button {
     background-color: rgba(140, 148, 187, 1);
 }
 
-.buttonNew {
+.buttonNew,
+.buttonDeleteYes,
+.buttonDeleteNo {
     position: fixed;
     bottom: 10px;
+}
+
+.buttonDeleteYes {
+    right: 100px;
+}
+
+.buttonDeleteNo,
+.buttonNew {
     right: 0px;
 }
 
 .btnEdit,
-.btnDelete {
+.btnDelete,
+.buttonDeleteYes,
+.buttonDeleteNo {
     width: 75px;
 }
 
 input {
     width: 220px;
     height: 30px;
+    border-color: #9d9dbc;
 }
 
 main,
@@ -138,12 +160,22 @@ main.list {
     z-index: 100;
 }
 
+.modalBody {
+    background-color: rgba(140, 148, 187, 1);
+    color: white;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+}
+
 .modalEdit .modalBody,
 .modalDelete .modalBody,
 .modalAdd .modalBody {
     min-height: 400px;
     width: 90%;
-    background-color: white;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
