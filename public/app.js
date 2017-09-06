@@ -96,9 +96,8 @@ function displayRideUpdates(data) {
         //        $('.btnDelete').attr("data-id", id);
         console.log("data-id", id);
         $('main').append(
-            '<p class="sectionedList">' + " " +
-            '</p>',
-            '<h6>' + "Amusement Park Name:" + '</h6>',
+
+            '<h6 class="sectionedList">' + "Amusement Park Name:" + '</h6>',
             '<p>' + data[i].amusementParkName + '</p>',
             '<h6>' + "Ride Name:" + '</h6>',
             '<p>' + data[i].rideName + '</p>',
@@ -113,7 +112,7 @@ function displayRideUpdates(data) {
             '<h6>' + "Say something about this ride:" + '</h6>',
             '<p>' + data[i].text + '</p>',
             '<br />',
-            '<div class="clearfix">' +
+            '<div class="clearfix m50B">' +
             '<button class="btnEdit floatRight" data-id="' + id + '">' + "Edit" + '</button>' +
 
             '<button class="btnDelete floatRight" data-id="' + id + '">' + "Delete" + '</button>' +

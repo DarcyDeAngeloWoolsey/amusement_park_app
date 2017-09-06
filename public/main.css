@@ -18,19 +18,22 @@ header {
 
 .list {
     color: white;
-    background-color: rgba(16, 51, 223, 0.6);
+    background-color: rgba(140, 148, 187, 0.9)
 }
 
-h6,
-.sectionedList
-/*p:nth-child(2n+1)*/
+h6
+/*.sectionedList
+p:nth-child(2n+1)*/
 
 {
     background-color: rgba(16, 51, 223, 1);
+    border-bottom: 2px solid #cccccc;
+    border-top: 2px solid #cccccc;
 }
 
 .sectionedList {
     border-top: 2px solid #cccccc;
+    width: 100%;
 }
 
 button {
@@ -192,6 +195,10 @@ input:required {
     margin-top: 50px;
 }
 
+.m50B {
+    margin-bottom: 50px;
+}
+
 .m20 {
     margin-top: 20px;
 }
@@ -204,9 +211,5 @@ input:required {
     .modalBody {
         min-height: 400px;
         max-width: 350px;
-    }
-    p {
-        display: inline-block;
-        padding-right: 5px;
     }
 }
