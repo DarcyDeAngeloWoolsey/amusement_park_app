@@ -198,8 +198,7 @@ function displayRideUpdates(data) {
 //create a function whose purpose is to get and display the updates by passing the above functions as the argument
 function getAndDisplayRideUpdates() {
     $.get('/rides', {
-        amusementParkName: $('[name=list]').val(),
-        rideName: $('[name=list]').val()
+        amusementParkName: $('[name=list]').val()
     }, function (data) {
         $(".list").empty();
         $(".list").show();
@@ -223,8 +222,7 @@ $(function () {
     $(".formList").submit(function () {
         event.preventDefault();
         $.get('/rides', {
-            amusementParkName: $('[name=list]').val(),
-            rideName: $('[name=list]').val()
+            amusementParkName: $('[name=list]').val()
         }, function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
