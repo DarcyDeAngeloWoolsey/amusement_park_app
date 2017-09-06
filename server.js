@@ -47,15 +47,23 @@ mongoose.Promise = global.Promise;
 
 app.get('/rides', (req, res) => {
     const filters = {};
-    const queryableFields = ['amusementParkName'];
+    const queryableFields = ['amusementParkName', 'rideName'];
+    console.log("do this first");
     queryableFields.forEach(field => {
         if (req.query[field]) {
             filters[field] = req.query[field];
         }
     });
     RideStatus
-        .find(filters)
+        .find(
+            /*{
+                        $text: {
+                            $search: "Disney"
+                        }
+                    }*/
+            filters)
         .then(rides => {
+            console.log("do this second");
             res.json(rides.map(ride => ride.apiRepr()))
         })
         .catch(err => {

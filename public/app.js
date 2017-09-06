@@ -111,13 +111,12 @@ function displayRideUpdates(data) {
             '<p>' + data[i].rating + '</p>',
             '<h6>' + "Say something about this ride:" + '</h6>',
             '<p>' + data[i].text + '</p>',
-            '<br />',
-            '<div class="clearfix m50B">' +
+            '<div class="clearfix p50B buttonDiv">' +
             '<button class="btnEdit floatRight" data-id="' + id + '">' + "Edit" + '</button>' +
 
             '<button class="btnDelete floatRight" data-id="' + id + '">' + "Delete" + '</button>' +
             '</div>',
-            '<br/>'
+            '<br style="display:block; margin-top:20px; line-height:30px;"/>'
         );
 
     }

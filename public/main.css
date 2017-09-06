@@ -16,32 +16,6 @@ header {
     color: white;
 }
 
-.list {
-    color: white;
-    background-color: rgba(140, 148, 187, 0.9)
-}
-
-h6
-/*.sectionedList
-p:nth-child(2n+1)*/
-
-{
-    background-color: rgba(16, 51, 223, 1);
-    border-bottom: 2px solid #cccccc;
-    border-top: 2px solid #cccccc;
-}
-
-.sectionedList {
-    border-top: 2px solid #cccccc;
-    width: 100%;
-}
-
-button {
-    background-color: #eeeeee;
-    border-radius: 10px;
-    margin: 5px;
-}
-
 h1 {
     font-size: 3.6em;
     padding-top: 3px;
@@ -68,6 +42,12 @@ h5 {
     font-size: 1.6em;
 }
 
+h6 {
+    background-color: rgba(16, 51, 223, 1);
+    border-bottom: 2px solid #cccccc;
+    border-top: 2px solid #cccccc;
+}
+
 h6,
 label {
     font-size: 1.4em;
@@ -91,6 +71,27 @@ p {
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 10px;
+    background-color: rgba(140, 148, 187, 0.9);
+}
+
+.list {
+    color: white;
+}
+
+.sectionedList {
+    border-top: 2px solid #cccccc;
+    width: 100%;
+    font-size: 1.8em;
+}
+
+button {
+    background-color: #eeeeee;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.buttonDiv {
+    background-color: rgba(140, 148, 187, 1);
 }
 
 input {
@@ -195,8 +196,8 @@ input:required {
     margin-top: 50px;
 }
 
-.m50B {
-    margin-bottom: 50px;
+.p50B {
+    padding-bottom: 50px;
 }
 
 .m20 {
