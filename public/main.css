@@ -11,9 +11,22 @@ body {
     background-position: center top;
 }
 
-header,
+header {
+    background-color: rgba(140, 148, 187, 0.4);
+    color: white;
+}
+
 .list {
-    background-color: rgba(255, 255, 255, 0.9);
+    color: white;
+    background-color: rgba(16, 51, 223, 0.6);
+}
+
+h6,
+.sectionedList
+/*p:nth-child(2n+1)*/
+
+{
+    background-color: rgba(16, 51, 223, 1);
 }
 
 .sectionedList {
@@ -58,10 +71,15 @@ label {
     font-weight: 600;
     padding-left: 5px;
     padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    letter-spacing: 2px;
 }
 
 p {
     font-size: 1.6em;
+    letter-spacing: 1px;
+    padding-bottom: 3px;
 }
 
 .list p,
@@ -69,6 +87,7 @@ p {
     padding: 3px;
     padding-left: 5px;
     padding-right: 5px;
+    padding-bottom: 10px;
 }
 
 input {

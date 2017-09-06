@@ -96,7 +96,7 @@ function displayRideUpdates(data) {
         //        $('.btnDelete').attr("data-id", id);
         console.log("data-id", id);
         $('main').append(
-            '<p class="sectionedList">' +
+            '<p class="sectionedList">' + " " +
             '</p>',
             '<h6>' + "Amusement Park Name:" + '</h6>',
             '<p>' + data[i].amusementParkName + '</p>',
