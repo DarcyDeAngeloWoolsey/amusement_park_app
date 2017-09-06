@@ -88,14 +88,27 @@ button {
     background-color: #eeeeee;
     border-radius: 10px;
     margin: 5px;
+    padding: 5px;
 }
 
 .buttonDiv {
     background-color: rgba(140, 148, 187, 1);
 }
 
+.buttonNew {
+    position: fixed;
+    bottom: 10px;
+    right: 0px;
+}
+
+.btnEdit,
+.btnDelete {
+    width: 75px;
+}
+
 input {
     width: 220px;
+    height: 30px;
 }
 
 main,
