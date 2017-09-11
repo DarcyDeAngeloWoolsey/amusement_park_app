@@ -250,8 +250,17 @@ $(function () {
     //add ability to get list from database instead
     $(".formList").submit(function () {
         event.preventDefault();
+        let name = $('[name=list]').val();
+        let nameTrim = $.trim(name);
+
+        let nameTrimCase = nameTrim.replace(/[^-'\s]+/g, function (word) {
+            return word.replace(/^./, function (first) {
+                return first.toUpperCase();
+            });
+        });
+
         $.get('/rides', {
-            amusementParkName: $.trim($('[name=list]').val())
+            amusementParkName: nameTrimCase
         }, function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
