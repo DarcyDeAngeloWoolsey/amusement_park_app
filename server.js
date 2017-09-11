@@ -45,7 +45,7 @@ app.get('/rides', (req, res) => {
     RideStatus
         .find(filters || {
             $text: {
-                $search: filters[field]
+                $search: ['filters[field]']
             }
         })
         .then(rides => {
