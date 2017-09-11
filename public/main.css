@@ -296,3 +296,17 @@ input:required {
         max-width: 350px;
     }
 }
+
+@media screen and (max-height: 600px) {
+    main.list {
+        height: 300px;
+        overflow-y: scroll;
+    }
+}
+
+@media screen and (min-height: 800px) {
+    main.list {
+        height: 600px;
+        overflow-y: scroll;
+    }
+}
