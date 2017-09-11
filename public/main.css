@@ -5,7 +5,7 @@ body {
     max-width: 600px;
     margin: auto;
     background-image: url("images/background_img_1.jpg");
-    background-color: #eeeeee;
+    background-color: rgba(140, 148, 187, 0.4);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center top;
@@ -101,6 +101,11 @@ label {
 .sectionedList {
     border-top: 2px solid #cccccc;
     font-size: 1.8em;
+}
+
+.divNew {
+    max-width: 600px;
+    height: 100px;
 }
 
 button {
