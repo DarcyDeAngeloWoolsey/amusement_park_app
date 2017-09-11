@@ -27,34 +27,27 @@ app.get("/", (request, response) => {
 mongoose.Promise = global.Promise;
 
 
-//need to figure out how to app.use the functions in app.js
-
-//app.get('/rides', (req, res) => {
-//
-//    RideStatus
-//        .find()
-//        .exec()
-//        .then(rides => {
-//            res.json(rides.map(ride => ride.apiRepr()));
-//        })
-//        .catch(err => {
-//            console.error(err);
-//            res.status(500).json({
-//                error: 'A 500 error has occured'
-//            });
-//        });
-//});
 
 app.get('/rides', (req, res) => {
     const filters = {};
+
     const queryableFields = ['amusementParkName'];
+
     queryableFields.forEach(field => {
         if (req.query[field]) {
+
             filters[field] = req.query[field];
+            //filters[field] is whatever you passed into the search input
+            console.log(filters[field]);
         }
+
     });
     RideStatus
-        .find(filters)
+        .find(filters || {
+            $text: {
+                $search: filters[field]
+            }
+        })
         .then(rides => {
             res.json(rides.map(ride => ride.apiRepr()))
         })
