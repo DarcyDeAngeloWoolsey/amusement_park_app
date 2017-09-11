@@ -282,8 +282,16 @@ $(function () {
     $(".formAdd").submit(function () {
         event.preventDefault();
         console.log("running formadd in app");
+        let name = $('[name=amusementParkName]').val();
+        let nameTrim = $.trim(name);
+
+        let nameTrimCase = nameTrim.replace(/[^-'\s]+/g, function (word) {
+            return word.replace(/^./, function (first) {
+                return first.toUpperCase();
+            });
+        });
         $.post('/rides', {
-            amusementParkName: $('[name=amusementParkName]').val(),
+            amusementParkName: nameTrimCase,
             rideName: $('[name=rideName]').val(),
             minutesWait: $('[name=minutesWait]').val(),
             typeOfRide: $('[name=typeOfRide]').val(),
@@ -329,12 +337,20 @@ $(function () {
         event.preventDefault();
         console.log("start edit");
         console.log($(".buttonEditApply"))
+        let name = $('[name=amusementParkNameEdit]').val();
+        let nameTrim = $.trim(name);
+
+        let nameTrimCase = nameTrim.replace(/[^-'\s]+/g, function (word) {
+            return word.replace(/^./, function (first) {
+                return first.toUpperCase();
+            });
+        });
         $.ajax({
             url: '/rides/' + $(".buttonEditApply").attr('data-id'),
 
             method: 'PUT',
             data: ({
-                amusementParkName: $('[name=amusementParkNameEdit]').val(),
+                amusementParkName: nameTrimCase,
                 rideName: $('[name=rideNameEdit]').val(),
                 minutesWait: $('[name=minutesWaitEdit]').val(),
                 typeOfRide: $('[name=typeOfRideEdit]').val(),
