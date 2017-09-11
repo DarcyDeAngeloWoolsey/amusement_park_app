@@ -29,24 +29,21 @@ mongoose.Promise = global.Promise;
 
 
 app.get('/rides', (req, res) => {
-    const filters = {};
+    const {
+        searchQuery
+    } = req.query
 
-    const queryableFields = ['amusementParkName'];
+    const regexp = {
+        '$regex': new RegExp(searchQuery)
+    };
 
-    queryableFields.forEach(field => {
-        if (req.query[field]) {
-
-            filters[field] = req.query[field];
-            //filters[field] is whatever you passed into the search input
-            console.log(filters[field]);
-        }
-
-    });
     RideStatus
-        .find(filters || {
-            $text: {
-                $search: ['filters[field]']
-            }
+        .find({
+            $or: [{
+                amusementParkName: regexp
+            }, {
+                rideName: regexp
+            }]
         })
         .then(rides => {
             res.json(rides.map(ride => ride.apiRepr()))

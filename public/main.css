@@ -114,7 +114,6 @@ button {
     background-color: rgba(140, 148, 187, 1);
 }
 
-.buttonNew,
 .buttonDeleteYes,
 .buttonDeleteNo {
     position: fixed;
@@ -125,8 +124,7 @@ button {
     right: 100px;
 }
 
-.buttonDeleteNo,
-.buttonNew {
+.buttonDeleteNo {
     right: 0px;
 }
 
@@ -273,6 +271,10 @@ input:required {
 
 .m20 {
     margin-top: 20px;
+}
+
+.m10 {
+    margin-top: 10px;
 }
 
 .mAuto {
