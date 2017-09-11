@@ -232,7 +232,6 @@ function getAndDisplayRideUpdates() {
     }, function (data) {
         $(".list").empty();
         $(".list").show();
-        console.log("getRecent working");
         displayRideUpdates(data);
     });
 }
@@ -252,7 +251,7 @@ $(function () {
     $(".formList").submit(function () {
         event.preventDefault();
         $.get('/rides', {
-            amusementParkName: $('[name=list]').val()
+            amusementParkName: $.trim($('[name=list]').val())
         }, function (data) {
             console.log("getRecent working");
             displayRideUpdates(data);
