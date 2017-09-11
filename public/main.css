@@ -59,6 +59,12 @@ label {
     letter-spacing: 2px;
 }
 
+h6.aliceblue {
+    background-color: aliceblue;
+    color: black;
+    border-bottom: none;
+}
+
 p {
     font-size: 1.6em;
     letter-spacing: 1px;
@@ -81,6 +87,10 @@ p {
     -ms-transform: translate(0%, -50%);
     -webkit-transform: translate(0%, -50%);
     transform: translate(0%, -50%);
+}
+
+label {
+    margin-left: 10px;
 }
 
 .list {
@@ -122,7 +132,11 @@ button {
 .btnEdit,
 .btnDelete,
 .buttonDeleteYes,
-.buttonDeleteNo {
+.buttonDeleteNo,
+.btnAdd,
+.buttonCloseModal,
+.buttonEditApply,
+.buttonEditCancel {
     width: 75px;
 }
 
@@ -152,8 +166,8 @@ main.list {
 .modalFade {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.4);
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
     top: 0px;
     left: 0px;
     z-index: 100;
@@ -196,14 +210,18 @@ main.list {
 
 .formAdd,
 .formEdit {
-    width: 90%;
+    width: 290px;
+    padding-top: 10px;
 }
 
 .formAdd input,
 .formAdd textarea,
 .formEdit input,
 .formEdit textarea {
-    width: 100%;
+    width: 250px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    padding-left: 5px
 }
 
 input:required {
@@ -212,6 +230,10 @@ input:required {
 
 .displayBlock {
     display: block;
+}
+
+.displayNone {
+    display: none;
 }
 
 .textInline {

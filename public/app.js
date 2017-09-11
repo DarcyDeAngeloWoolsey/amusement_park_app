@@ -101,26 +101,42 @@ function displayRideUpdates(data) {
             '<p>' + data[i].amusementParkName + '</p>',
             '<h6>' + "Ride Name:" + '</h6>',
             '<p>' + data[i].rideName + '</p>',
-            '<h6>' + "Wait Time in Minutes:" + '</h6>',
-            '<p>' + data[i].minutesWait + '</p>',
-            '<h6>' + "Type of Ride:" + '</h6>',
-            '<p>' + data[i].typeOfRide + '</p>',
-            '<h6>' + "Thrill Level:" + '</h6>',
-            '<p>' + data[i].thrill + '</p>',
-            '<h6>' + "Give it a Rating:" + '</h6>',
-            '<p>' + data[i].rating + '</p>',
-            '<h6>' + "Say something about this ride:" + '</h6>',
-            '<p>' + data[i].text + '</p>',
+            '<h6 class="showMore aliceblue">' + "More..." + '</h6>',
+            '<h6 class="showLess aliceblue displayNone">' + "Less..." + '</h6>',
+            '<div class ="displayNone expandableElement">' +
+            '<h6>' + "Wait Time in Minutes:" + '</h6>' +
+            '<p>' + data[i].minutesWait + '</p>' +
+            '<h6>' + "Type of Ride:" + '</h6>' +
+            '<p>' + data[i].typeOfRide + '</p>' +
+            '<h6>' + "Thrill Level:" + '</h6>' +
+            '<p>' + data[i].thrill + '</p>' +
+            '<h6>' + "Give it a Rating:" + '</h6>' +
+            '<p>' + data[i].rating + '</p>' +
+            '<h6>' + "Say something about this ride:" + '</h6>' +
+            '<p>' + data[i].text + '</p>' +
             '<div class="clearfix p50B buttonDiv">' +
             '<button class="btnEdit floatRight" data-id="' + id + '">' + "Edit" + '</button>' +
 
             '<button class="btnDelete floatRight" data-id="' + id + '">' + "Delete" + '</button>' +
-            '</div>',
+            '</div>' +
+            '</div>' +
             '<br style="display:block; margin-top:20px; line-height:30px;"/>'
         );
 
     }
+    $(".showMore").click(function () {
+        console.log("showMore clicked");
+        $(this).nextUntil($("br")).removeClass("displayNone");
+        $(this).next(".showLess").removeClass("displayNone");
+        $(this).addClass("displayNone");
+    });
 
+    $(".showLess").click(function () {
+        console.log("showLess clicked");
+        $(this).nextUntil($("br")).addClass("displayNone");
+        $(this).prev(".showMore").removeClass("displayNone");
+        $(this).addClass("displayNone");
+    });
 
     $(".btnEdit").click(function (event) {
         event.preventDefault();
@@ -148,16 +164,30 @@ function displayRideUpdates(data) {
             '<label>' + "Say something about this ride" + '</label>',
             '<textarea class="displayBlock marginAuto" name="textEdit" placeholder="Describe in 50 characters" value="' + ride.text + '">' + "" +
             '</textarea>',
-            '<br />',
-            '<button class="displayBlock floatRight button buttonEditApply" type="submit">' + "Apply" + '</button>',
+            '<br />' +
+            '<div class="clearfix">' +
+            '<button class="displayBlock floatRight button buttonEditCancel" type="button">' + "Cancel" + '</button>' +
+            '<button class="displayBlock floatRight button buttonEditApply" type="submit">' + "Apply" + '</button>' +
+            '</div>' +
             '<br />'
         );
         $(".formEdit").children("input").attr('data-id', $(this).attr('data-id'));
 
         $(".buttonEditApply").attr('data-id', $(this).attr('data-id'));
 
+        $(".buttonEditCancel").click(function (event) {
+            console.log("clicking cancel edit");
+            event.preventDefault();
+            console.log("clicking cancel edit");
+            $(".modalEdit").hide();
+            $(".formEdit").empty();
+            $(".list").show();
+        });
+
         $(".formEdit")[0].reset();
     });
+
+
 
     $(".btnDelete").click(function (event) {
         event.preventDefault();
@@ -233,6 +263,8 @@ $(function () {
         $(".formList")[0].reset();
     });
 
+
+
     $(".buttonNew").click(function () {
         event.preventDefault();
         $(".modalAdd").show();
@@ -283,12 +315,7 @@ $(function () {
 
 
 
-    $(".buttonEditCancel").click(function () {
-        event.preventDefault();
-        $(".modalEdit").hide();
-        $(".formEdit").empty();
-        $(".list").show();
-    });
+
 
     $(".formEdit").submit(function (event) {
         event.preventDefault();

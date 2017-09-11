@@ -30,7 +30,6 @@
 
     <div class="modalFade modalAdd">
         <div class="modalBody marginAuto">
-            <button class="displayBlock floatRight button buttonCloseModal" type="button">Close</button>
             <form class="formAdd marginAuto">
                 <label>Amusement Park Name</label>
                 <input class="displayBlock marginAuto" type="text" name="amusementParkName" placeholder="Disney Hollywood Studios Florida" required>
@@ -46,7 +45,10 @@
                 <input class="displayBlock marginAuto" type="text" name="rating" placeholder="Enter 1-5" required>
                 <label>Say something about this ride</label>
                 <textarea class="displayBlock marginAuto" name="text" placeholder="Describe in 50 characters"></textarea>
-                <button class="displayBlock floatRight button btnAdd" type="submit">Add</button>
+                <div class="clearfix">
+                    <button class="displayBlock floatRight button buttonCloseModal" type="button">Cancel</button>
+                    <button class="displayBlock floatRight button btnAdd" type="submit">Add</button>
+                </div>
             </form>
         </div>
     </div>
@@ -67,7 +69,7 @@
 
 
             </form>
-            <button class="button buttonEditCancel" type="button">Cancel</button>
+
         </div>
     </div>
 
